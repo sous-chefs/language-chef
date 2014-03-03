@@ -24,8 +24,8 @@
     'prefix': 'group'
     'body': 'group \'${1:group}\' do\n  gid \'${2:999}\'\n  members [\'${3:kyle}\', \'${4:cartment}\']\nend'
   'http_request':
-    'prefix': 'http'
-    'body': 'http_request \'${1:description}\' do\n  action :${2:post}\n  url \'${3:http://example.com/check_in}\'\n  message :${4:key} => \'${5:value}\'\nend'
+    'prefix': 'http_request'
+    'body': 'http_request \'${1:description}\' do\n  url \'${2:http://example.com/check_in}\'\n  message :${3:key} => \'${4:value}\'\n  action :${5:post}\nend'
   'link':
     'prefix': 'link'
     'body': 'link \'${1:/tmp/passwd}\' do\n  to \'${1:/etc/passwd}\'\nend'
