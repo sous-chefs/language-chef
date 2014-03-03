@@ -1,52 +1,142 @@
 '.source.ruby.chef':
-  'log':
-    'prefix': 'log'
-    'body': 'log \'${1:name}\' do\n  message \"${2:This is a message that will be added to the log.}\"\n  level :${3:info}\nend'
+  'apt_package':
+    'prefix': 'apt_package'
+    'body': 'apt_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'bash':
+    'prefix': 'bash'
+    'body': 'bash \'${1:a bash script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:wget http://www.example.com/tarball.tar.bz\n  tar -zxf tarball.tar.gz\n  cd tarball\n  ./configure\n  make\n  make install}\n  EOH\nend'
+  'chef_gem':
+    'prefix': 'chef_gem'
+    'body': 'chef_gem \'${1:right_aws}\' do\n  action :${2:install}\'\nend'
   'cookbook_file':
     'prefix': 'cookbook_file'
     'body': 'cookbook_file \'${1:/tmp/testfile}\' do\n  source \'${2:testfile}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0644}\'\nend'
   'cron':
     'prefix': 'cron'
-    'body': 'cron \'${1:name}\' do\n  hour \'${2:5}\'\n  minute \'${3:5}\'\n  command \'${3:/bin/script}\'\nend\n'
+    'body': 'cron \'${1:name}\' do\n  hour \'${2:5}\'\n  minute \'${3:5}\'\n  command \'${3:/bin/script}\'\nend'
+  'csh':
+    'prefix': 'csh'
+    'body': 'csh \'${1:a csh script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:foreach i ( 10 15 20 40 )\n    echo $i\n  end}\n  EOH\nend'
+  'deploy':
+    'prefix': 'deploy'
+    'body': 'deploy \'${1:/my/deploy/dir}\' do\n  repo \'${2:git@github.com/whoami/project}\'\n  user \'${3:deploy_ninja}\'\n  migrate ${4:true}\n  migration_command \'${5:rake db:migrate}\'\n  environment ${6:\'RAILS_ENV\' => \'production\', \'OTHER_ENV\' => \'foo\'}\n  action :${7:deploy}\n  scm_provider ${8:Chef::Provider::Git}\nend'
   'directory':
     'prefix': 'directory'
     'body': 'directory \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode \'${4:0755}\'\n  recursive true\n  action :create\nend'
+  'dpkg_package':
+    'prefix': 'dpkg_package'
+    'body': 'dpkg_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'easy_install_package':
+    'prefix': 'easy_install_package'
+    'body': 'easy_install_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'env':
+    'prefix': 'env'
+    'body': 'env \'${1:ComSpec}\' do\n  value \'${2:C:\\\\Windows\\\\system32\\\\cmd.exe}\'\nend'
+  'erl_call':
+    'prefix': 'erl_call'
+    'body': 'erl_call \'${1:list names}\' do\n  code \'${2:net_adm:names().}\'\n  distributed ${3:true}\n  node_name \'${4:chef@latte}\'\nend'
   'execute':
     'prefix': 'execute'
     'body': 'execute \'${1:name}\' do\n  command \'${2:command}\'\n  action :run\nend'
   'file':
     'prefix': 'file'
-    'body': 'file \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:$2}\'\n  mode \'${4:0755}\'\n  action :${5:create}\nend'
+    'body': 'file \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode \'${4:0755}\'\n  action :${5:create}\nend'
+  'freebsd_package':
+    'prefix': 'freebsd_package'
+    'body': 'freebsd_package \'${1:name}\' do\n  action :${2:install}\nend'
   'gem_package':
     'prefix': 'gem_package'
     'body': 'gem_package \'${1:gem}\' do\n  action :${2:install}\nend'
+  'git':
+    'prefix': 'git'
+    'body': 'git \'${1:/tmp/app_name}\' do\n  repository \'${2:git@github.com/whoami/project}\'\n  reference \'${3:abc1234}\'\n  action :${4:sync}\nend'
   'group':
     'prefix': 'group'
-    'body': 'group \'${1:group}\' do\n  gid \'${2:999}\'\n  members [\'${3:kyle}\', \'${4:cartment}\']\nend'
+    'body': 'group \'${1:group}\' do\n  members [\'${2:kyle}\', \'${3:cartman}\']\n  action :${4:create}\nend'
   'http_request':
     'prefix': 'http_request'
     'body': 'http_request \'${1:description}\' do\n  url \'${2:http://example.com/check_in}\'\n  message :${3:key} => \'${4:value}\'\n  action :${5:post}\nend'
+  'ifconfig':
+    'prefix': 'ifconfig'
+    'body': 'ifconfig \'${1:192.168.0.1}\' do\n  device \'${2:eth0}\'\nend'
+  'ips_package':
+    'prefix': 'ips_package'
+    'body': 'ips_package \'${1:name}\' do\n  action :${2:install}\nend'
   'link':
     'prefix': 'link'
-    'body': 'link \'${1:/tmp/passwd}\' do\n  to \'${1:/etc/passwd}\'\nend'
+    'body': 'link \'${1:/tmp/passwd}\' do\n  to \'${2:/etc/passwd}\'\nend'
+  'log':
+    'prefix': 'log'
+    'body': 'log \'${1:name}\' do\n  message \"${2:This is a message that will be added to the log.}\"\n  level :${3:info}\nend'
+  'macports_package':
+    'prefix': 'macports_package'
+    'body': 'macports_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'mdadm':
+    'prefix': 'mdadm'
+    'body': 'mdadm \'${1:/dev/md0}\' do\n  devices [ ${2:\'/dev/sda\', \'/dev/sdb\'} ]\n  level ${3:1}\n  action [ ${4::create, :assemble} ]\nend'
+  'mount':
+    'prefix': 'mount'
+    'body': 'mount \'${1:/mnt/volume1}\' do\n  device \'${2:volume1}\'\n  fstype \'${3:xfs}\'\n  action :${4:mount}\nend'
+  'ohai':
+    'prefix': 'ohai'
+    'body': 'ohai \'${1:reload_passwd}\' do\n  plugin \'${2:passwd}\'\n  action :${3:nothing}\nend'
   'package':
     'prefix': 'package'
     'body': 'package \'${1:name}\' do\n action :${2:install}\nend'
+  'pacman_package':
+    'prefix': 'pacman_package'
+    'body': 'pacman_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'perl':
+    'prefix': 'perl'
+    'body': 'perl \'${1:a perl script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:# hello.pl\n  #  - Displays a warm greeting\n  print \"Hello, World!\\n\";}\n  EOH\nend'
+  'portage_package':
+    'prefix': 'portage_package'
+    'body': 'portage_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'powershell_script':
+    'prefix': 'powershell_script'
+    'body': 'powershell_script \'${1:cwd-to-win-env-var}\' do\n  cwd \'${2:%TEMP%}\'\n  code <<-EOH\n  ${3:$stream = [System.IO.StreamWriter] \"./temp-write-from-chef.txt\"\n  $stream.WriteLine(\"chef on windows rox yo!\")\n  $stream.close()}\n  EOH\nend'
+  'python':
+    'prefix': 'python'
+    'body': 'python \'${1:a python script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH  ${4:friends = [\'john\', \'pat\', \'gary\', \'michael\']\n  for i, name in enumerate(friends):\n      print \"iteration {iteration} is {name}\".format(iteration=i, name=name)}\nend'
+  'registry_key':
+    'prefix': 'registry_key'
+    'body': 'registry_key \'${1:HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\name_of_registry_key}\' do\n  values [{:name => \'${2:NewRegistryKeyValue}\', :type => :${3:string}, :data => ${4:\'C:\Windows\System32\file_name.bmp\'}}]\n  action :${5:create}\nend'
+  'remote_directory':
+    'prefix': 'remote_directory'
+    'body': 'remote_directory \'${1:/foo/bar/baz}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode ${3:00755}\n  action :${4:create}\nend'
   'remote_file':
     'prefix': 'remote_file'
     'body': 'remote_file \'${1:/opt/chef/file}\' do\n  source \'${2:http://myfile}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  checksum \'${5:abc123}\'\nend'
+  'route':
+    'prefix': 'route'
+    'body': 'route \'${1:10.0.1.10/32}\' do\n  gateway \'${2:10.0.0.20}\'\n  device \'${3:eth1}\'\nend'
+  'rpm_package':
+    'prefix': 'rpm_package'
+    'body': 'rpm_package \'${1:name}\' do\n  action :${2:install}\nend'
   'ruby_block':
     'prefix': 'ruby_block'
     'body': 'ruby_block \'${1:desc}\' do\n  block do\n    ${1:puts \'awesome\'}\n  end\nend'
   'script':
     'prefix': 'script'
-    'body': 'script \'${1:desc}\' do\n  interpreter \'${2:bash}\'\n  user \'${3:root}\'\n  cwd \'${4:/tmp}\'\n  code <<-EOF\n\t${5:script commands}\n  EOF\nend\n'
+    'body': 'script \'${1:desc}\' do\n  interpreter \'${2:bash}\'\n  user \'${3:root}\'\n  cwd \'${4:/tmp}\'\n  code <<-EOF\n\t${5:script commands}\n  EOF\nend'
   'service':
     'prefix': 'service'
     'body': 'service \'${1:service}\' do\n  supports :${2:status} => true\n  action [ :${3:enable}, :${3:start} ]\nend'
+  'smartos_package':
+    'prefix': 'smartos_package'
+    'body': 'smartos_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'solaris_package':
+    'prefix': 'solaris_package'
+    'body': 'solaris_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'subversion':
+    'prefix': 'subversion'
+    'body': 'subversion \'${1:CouchDB Edge}\' do\n  repository \'${2:http://svn.apache.org/repos/asf/couchdb/trunk}\'\n  revision \'${3:HEAD}\'\n  destination \'${4:/opt/mysources/couch}\'\n  action :${5:sync}\nend'
   'template':
     'prefix': 'template'
-    'body': 'template \'${1:target}\' do\n  source \'${2:source}.erb\'\n  owner \'${3:root}\'\n  group \'${4:$3}\'\n  mode \'${5:0744}\'\nend\n'
+    'body': 'template \'${1:/tmp/config.conf}\' do\n  source \'${2:config.conf.erb}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0744}\'\nend'
   'user':
     'prefix': 'user'
     'body': 'user \'${1:random}\' do\n  comment \'${2:Random User}\'\n  uid \'${3:1000}\'\n  gid \'${4:users}\'\n  shell \'${5:/bin/zsh}\'\nend'
+  'yum_package':
+    'prefix': 'yum_package'
+    'body': 'yum_package \'${1:name}\' do\n  action :${2:install}\nend'
