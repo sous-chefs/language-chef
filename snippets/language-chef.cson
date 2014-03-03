@@ -1,7 +1,7 @@
 '.source.ruby.chef':
-  'chef_log':
+  'log':
     'prefix': 'log'
-    'body': 'Chef::Log.${1:debug} \'${2:something to log}\''
+    'body': 'log \'${1:name}\' do\n  message \"${2:This is a message that will be added to the log.}\"\n  level :${3:info}\nend'
   'cookbook_file':
     'prefix': 'cookbook'
     'body': 'cookbook_file \'${1:/tmp/testfile}\' do\n  source \'${2:testfile}\'\n  owner \'${3:root}\'\n  group \'${4:$3}\'\n  mode \'${5:0644}\'\nend'
