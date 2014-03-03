@@ -32,9 +32,9 @@
   'package':
     'prefix': 'package'
     'body': 'package \'${1:name}\' do\n action :${2:install}\nend'
-  'remote':
-    'prefix': 'remote'
-    'body': 'remote_file \'${1:/opt/chef/file}\' do\n  source \'${2:http://myfile}\'\n  owner \'${3:root}\'\n  group \'${4:$3}\'\n  checksum \'${5:abc123}\'\nend'
+  'remote_file':
+    'prefix': 'remote_file'
+    'body': 'remote_file \'${1:/opt/chef/file}\' do\n  source \'${2:http://myfile}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  checksum \'${5:abc123}\'\nend'
   'ruby_block':
     'prefix': 'block'
     'body': 'ruby_block \'${1:desc}\' do\n  block do\n    ${1:puts \'awesome\'}\n  end\nend'
