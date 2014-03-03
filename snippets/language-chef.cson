@@ -36,7 +36,7 @@
     'prefix': 'remote_file'
     'body': 'remote_file \'${1:/opt/chef/file}\' do\n  source \'${2:http://myfile}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  checksum \'${5:abc123}\'\nend'
   'ruby_block':
-    'prefix': 'block'
+    'prefix': 'ruby_block'
     'body': 'ruby_block \'${1:desc}\' do\n  block do\n    ${1:puts \'awesome\'}\n  end\nend'
   'script':
     'prefix': 'script'
