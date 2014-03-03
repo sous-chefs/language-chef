@@ -12,8 +12,8 @@
     'prefix': 'directory'
     'body': 'directory \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode \'${4:0755}\'\n  recursive true\n  action :create\nend'
   'execute':
-    'prefix': 'exec'
-    'body': 'execute \'${1:name}\' do\n  command \'${2:command}\'\n  action :run\nend\n'
+    'prefix': 'execute'
+    'body': 'execute \'${1:name}\' do\n  command \'${2:command}\'\n  action :run\nend'
   'file':
     'prefix': 'file'
     'body': 'file \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:$2}\'\n  mode \'${4:0755}\'\n  action :${5:create}\nend'
