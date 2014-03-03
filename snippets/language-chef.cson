@@ -18,8 +18,8 @@
     'prefix': 'file'
     'body': 'file \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:$2}\'\n  mode \'${4:0755}\'\n  action :${5:create}\nend'
   'gem_package':
-    'prefix': 'gem'
-    'body': 'gem_package \'${1:gem}\'\n'
+    'prefix': 'gem_package'
+    'body': 'gem_package \'${1:gem}\' do\n  action :${2:install}\nend'
   'group':
     'prefix': 'group'
     'body': 'group \'${1:group}\' do\n  gid \'${2:999}\'\n  members [\'${3:kyle}\', \'${4:cartment}\']\nend'
