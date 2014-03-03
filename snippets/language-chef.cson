@@ -44,9 +44,6 @@
   'service':
     'prefix': 'service'
     'body': 'service \'${1:service}\' do\n  supports :${2:status} => true\n  action [ :${3:enable}, :${3:start} ]\nend'
-  'system_user':
-    'prefix': 'systemuser'
-    'body': 'user \'${1:random}\' do\n  comment \'${2:Random User}\'\n  system true\n  shell \'/bin/false\'\nend'
   'template':
     'prefix': 'template'
     'body': 'template \'${1:target}\' do\n  source \'${2:source}.erb\'\n  owner \'${3:root}\'\n  group \'${4:$3}\'\n  mode \'${5:0744}\'\nend\n'
