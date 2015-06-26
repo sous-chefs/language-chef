@@ -1,4 +1,7 @@
 '.source.ruby.chef':
+  'action':
+    'prefix': 'action'
+    'body': 'action ${1:nothing}'
   'apt_package':
     'prefix': 'apt_package'
     'body': 'apt_package \'${1:name}\' do\n  action :${2:install}\nend'
@@ -59,6 +62,12 @@
   'ifconfig':
     'prefix': 'ifconfig'
     'body': 'ifconfig \'${1:192.168.0.1}\' do\n  device \'${2:eth0}\'\nend'
+  'ignore_failure':
+    'prefix': 'ignore_failure'
+    'body': 'ignore_failure ${1:true}'
+  'inc':
+    'prefix': 'inc'
+    'body': 'include_recipe "${1:example::recipe}"'
   'ips_package':
     'prefix': 'ips_package'
     'body': 'ips_package \'${1:name}\' do\n  action :${2:install}\nend'
@@ -77,18 +86,30 @@
   'macports_package':
     'prefix': 'macports_package'
     'body': 'macports_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'meta':
+    'prefix': 'meta'
+    'body': 'name "${1:COOKBOOK_NAME}"\nmaintainer\n"${2:YOUR_COMPANY_NAME}"\nmaintainer_email "${3:YOUR_EMAIL}"\nlicense "${4:All rights reserved}"\n description "${5:Installs/Configures example}"\nlong_description IO.read(File.join(File.dirname(__FILE__), \'README.md\'))\nversion "${6:0.0.1}"'
   'mdadm':
     'prefix': 'mdadm'
     'body': 'mdadm \'${1:/dev/md0}\' do\n  devices [ ${2:\'/dev/sda\', \'/dev/sdb\'} ]\n  level ${3:1}\n  action [ ${4::create, :assemble} ]\nend'
   'mount':
     'prefix': 'mount'
     'body': 'mount \'${1:/mnt/volume1}\' do\n  device \'${2:volume1}\'\n  fstype \'${3:xfs}\'\n  action :${4:mount}\nend'
+  'not_if':
+    'prefix': 'not_if'
+    'body': 'not_if "${1}"'
   'ohai':
     'prefix': 'ohai'
     'body': 'ohai \'${1:reload_passwd}\' do\n  plugin \'${2:passwd}\'\n  action :${3:nothing}\nend'
+  'only_if':
+    'prefix': 'only_if'
+    'body': 'only_if "${1}"'
   'package':
     'prefix': 'package'
     'body': 'package \'${1:name}\' do\n action :${2:install}\nend'
+  'provider':
+    'prefix': 'provider'
+    'body': 'provider Chef::Provider::${1:Package::Rubygems}\n'
   'pacman_package':
     'prefix': 'pacman_package'
     'body': 'pacman_package \'${1:name}\' do\n  action :${2:install}\nend'
@@ -113,6 +134,12 @@
   'remote_file':
     'prefix': 'remote_file'
     'body': 'remote_file \'${1:/opt/chef/file}\' do\n  source \'${2:http://myfile}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  checksum \'${5:abc123}\'\nend'
+  'retries':
+    'prefix': 'retries'
+    'body': 'retries ${1:1}\n  retry_delay ${2:2}'
+  'role':
+    'prefix': 'role'
+    'body': 'name "${1:role name}"\ndescription "${2:Description for the role}"\nenv_run_lists "${3:env name}" => [\n ]\nrun_list ""\ndefault_attributes(\n   ${4::attribute => "example"}\n)'
   'route':
     'prefix': 'route'
     'body': 'route \'${1:10.0.1.10/32}\' do\n  gateway \'${2:10.0.0.20}\'\n  device \'${3:eth1}\'\nend'
@@ -134,12 +161,21 @@
   'solaris_package':
     'prefix': 'solaris_package'
     'body': 'solaris_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'subscribes':
+    'prefix': 'subscribes'
+    'body': 'subscribes :${1:restart}, "${2:template}[${3:name}]"'
   'subversion':
     'prefix': 'subversion'
     'body': 'subversion \'${1:CouchDB Edge}\' do\n  repository \'${2:http://svn.apache.org/repos/asf/couchdb/trunk}\'\n  revision \'${3:HEAD}\'\n  destination \'${4:/opt/mysources/couch}\'\n  action :${5:sync}\nend'
+  'supports':
+    'prefix': 'supports'
+    'body': 'supports :status => :${1:true}, :restart => :${2:true}, :reload => :${3:true}'
   'template':
     'prefix': 'template'
     'body': 'template \'${1:/tmp/config.conf}\' do\n  source \'${2:config.conf.erb}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0744}\'\nend'
+  'templatev':
+    'prefix': 'templatev'
+    'body': 'template "${1:name}" do\n source "${2:source}.erb"\nowner "root"\n  group "root"\n  node "0644"\n   variables( ${3::config_var => node[:configs][:config_var]}  )\nend'
   'user':
     'prefix': 'user'
     'body': 'user \'${1:random}\' do\n  comment \'${2:Random User}\'\n  uid \'${3:1000}\'\n  gid \'${4:users}\'\n  shell \'${5:/bin/zsh}\'\nend'
