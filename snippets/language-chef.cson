@@ -7,13 +7,13 @@
     'body': 'apt_package \'${1:name}\' do\n  action :${2:install}\nend'
   'aws_auto_scaling_group':
     'prefix': 'aws_auto_scaling_group'
-    'body': 'aws_auto_scaling_group \'${1:name}\' do\n  availability_zones \[${2:us-west-1}\]\n  desired_capacity ${3:2}\n  min_size ${4:1}\n  max_size ${5:3}\n  launch_configuration \'${6:ref-launch-configuration}\'\n  load_balancers \'${7:ref-load-balancer}\'\n  options subnets: \'${8:ref-subnets}\'\nend'
+    'body': 'aws_auto_scaling_group \'${1:name}\' do\n  availability_zones \[ \'${2:us-west-1}\' \]\n  desired_capacity ${3:2}\n  min_size ${4:1}\n  max_size ${5:3}\n  launch_configuration \'${6:ref-launch-configuration}\'\n  load_balancers \'${7:ref-load-balancer}\'\n  options subnets: \'${8:ref-subnets}\'\nend'
   'aws_cache_cluster':
     'prefix': 'aws_cache_cluster'
-    'body': 'aws_cache_cluster \'${1:name}\' do\n  az_mode \'${2:single-az}\'\n  engine \'${3:name}\'\n  engine_version \'${4:1.2.3}\'\n  node_type \'${5:cache.m3.large}\'\n  number_nodes \'${6:10}\'\n  preferred_availability_zones [\n    \'${7:PreferredAvailabilityZones.member.1=us-east-1a}\'\n  ]\nend'
+    'body': 'aws_cache_cluster \'${1:name}\' do\n  az_mode \'${2:single-az}\'\n  engine \'${3:name}\'\n  engine_version \'${4:1.2.3}\'\n  node_type \'${5:cache.m3.large}\'\n  number_nodes ${6:10}\n  preferred_availability_zones [\n    \'${7:PreferredAvailabilityZones.member.1=us-east-1a}\'\n  ]\nend'
   'aws_cache_replication_group':
     'prefix': 'aws_cache_replication_group'
-    'body': 'aws_cache_replication_group \'${1:name}\' do\n  automatic_failover ${2:true}\n  engine \'${3:name}\'\n  engine_version \'${4:1.2.3}\'\n  node_type \'${5:cache.m3.large}\'\n  number_cache_clusters \'${6:3}\'\n  preferred_availability_zones [\n    \'${7:PreferredAvailabilityZones.member.1=us-east-1a}\'\n  ]\n  subnet_group_name \'${8:subnet-1}\'\nend'
+    'body': 'aws_cache_replication_group \'${1:name}\' do\n  automatic_failover ${2:true}\n  engine \'${3:name}\'\n  engine_version \'${4:1.2.3}\'\n  node_type \'${5:cache.m3.large}\'\n  number_cache_clusters ${6:3}\n  preferred_availability_zones [\n    \'${7:PreferredAvailabilityZones.member.1=us-east-1a}\'\n  ]\n  subnet_group_name \'${8:subnet-1}\'\nend'
   'aws_cache_subnet_group':
     'prefix': 'aws_cache_subnet_group'
     'body': 'aws_cache_subnet_group \'${1:name}\' do\n  description \'${2:Description of cache subnet group.}\'\n  subnets \[ \'${3:subnet}\', \'${4:subnet}\' \]\nend'
@@ -22,10 +22,10 @@
     'body': 'aws_cloudsearch_domain \'${1:ref-cs-domain}\' do\n  instance_type \'${2:search.m1.small}\'\n  partition_count ${3:2}\n  replication_count ${4:2}\n  index_fields \[${5:}\]\nend'
   'aws_dhcp_options':
     'prefix': 'aws_dhcp_options'
-    'body': 'aws_dhcp_options \'${1:name}\' do\n  domain_name \'${2:example.com}\'\n  domain_name_servers ${3:\%w\(8.8.8.8 8.8.4.4\)}\n  ntp_servers ${4:\%w\(8.8.8.8 8.8.4.4\)}\n  netbios_name_servers ${5:\%w\(8.8.8.8 8.8.4.4\)}\n  aws_tags :${6:chef_type} ${7:name}\nend'
+    'body': 'aws_dhcp_options \'${1:name}\' do\n  domain_name \'${2:example.com}\'\n  domain_name_servers ${3:\%w\(8.8.8.8 8.8.4.4\)}\n  ntp_servers ${4:\%w\(8.8.8.8 8.8.4.4\)}\n  netbios_name_servers ${5:\%w\(8.8.8.8 8.8.4.4\)}\n  aws_tags :${6:chef_type} \'${7:aws_dhcp_options}\'\nend'
   'aws_ebs_volume':
     'prefix': 'aws_ebs_volume'
-    'body': 'aws_ebs_volume \'${1:name}\' do\n  machine \'${2:ref-machine-1}\'\n  availability_zone \'${3:a}\'\n  size ${4:100}\n  iops ${5:3000}\n  volume_type \'${6:io1}\'\n  encrypted ${7:true}\n  device \'${8:/dev/sda2}\'\n  aws_tags :${9:chef_type} ${10:aws_ebs_volume}\nend'
+    'body': 'aws_ebs_volume \'${1:name}\' do\n  machine \'${2:ref-machine-1}\'\n  availability_zone \'${3:a}\'\n  size ${4:100}\n  iops ${5:3000}\n  volume_type \'${6:io1}\'\n  encrypted ${7:true}\n  device \'${8:/dev/sda2}\'\n  aws_tags :${9:chef_type} \'${10:aws_ebs_volume}\'\nend'
   'aws_eip_address':
     'prefix': 'aws_eip_address'
     'body': 'aws_eip_address \'${1:name}\' do\n  machine \'${2:ref-machine-1}\'\n  associate_to_vpc ${3:true}\n  public_ip \'${4:205.32.21.0}\'\nend'
@@ -38,21 +38,21 @@
   'aws_internet_gateway':
     'prefix': 'aws_internet_gateway'
     'body': 'aws_internet_gateway \'${1:name}\' do\n  internet_gateway_id \'${2:1234567890}\'\nend'
-  'aws_keypair':
-    'prefix': 'aws_keypair'
-    'body': 'aws_keypair \'${1:name}\' do\n  allow_overwrite ${2:true}\n  private_key_options ${3:HASH}\nend'
+  'aws_key_pair':
+    'prefix': 'aws_key_pair'
+    'body': 'aws_key_pair \'${1:name}\' do\n  allow_overwrite ${2:true}\n  private_key_options\(\{ ${3:HASH} \}\)\nend'
   'aws_launch_configuration':
-    'prefix':
+    'prefix': 'aws_launch_configuration'
     'body': 'aws_launch_configuration \'${1:ref-launch-configuration}\' do\n  image \'${2:image-1}\'\n  instance_type \'${3:t2.micro}\'\n  options ${4:security_groups}: \'${5:ref-security-group}\'\nend'
   'aws_loadbalancer':
     'prefix': 'aws_loadbalancer'
     'body': 'aws_loadbalancer \'${1:name}\' do\n  loadbalancer_id \'${2:lb-1}\'\nend'
   'aws_network_acl':
     'prefix': 'aws_network_acl'
-    'body': 'aws_network_acl \'${1:name}\' do\n  vpc \'${2:ref-vpc}\'\n  inbound_rules \'${3:0.0.0.0}\' => \[ 22, 80 \]\n  outbound_rules \[\n    \{:port => ${4:22..22,} :protocol => :${5:tcp}, :destinations => \[${6:0.0.0.0\/0}\] \}\n  aws_tags :${7:chef_type} ${8:aws_security_group}\nend'
+    'body': 'aws_network_acl \'${1:name}\' do\n  vpc \'${2:ref-vpc}\'\n  inbound_rules \'${3:0.0.0.0\/0}\' => \[ ${4:22, 80} \]\n  outbound_rules \[\n    \{:port => ${5:22..22,} :protocol => :${6:tcp}, :destinations => \[${7:0.0.0.0\/0}\] \}\n  aws_tags :${8:chef_type} \'${9:aws_security_group}\'\nend'
   'aws_network_interface':
     'prefix': 'aws_network_interface'
-    'body': 'aws_network_interface \'${1:name}\' do\n  machine \'${2:ref-machine-1}\'\n  device_index ${3:2}\n  subnet \'${4:ref-subnet}\'\n  security_groups \[\' ${5:ref-security-group} \'\]\n  description \'${6:ref-eni-desc}\'\nend'
+    'body': 'aws_network_interface \'${1:name}\' do\n  machine \'${2:ref-machine-1}\'\n  device_index ${3:2}\n  subnet \'${4:ref-subnet}\'\n  security_groups \[\'${5:ref-security-group}\'\]\n  description \'${6:ref-eni-desc}\'\nend'
   'aws_rds_instance':
     'prefix': 'aws_rds_instance'
     'body': 'aws_rds_instance \'${1:rds-instance}\' do\n  engine \'${2:postgres}\'\n  publicly_accessible ${3:false}\n  db_instance_class \'${4:db.t1.micro}\'\n  master_username \'${5:user}\'\n  master_user_password \'${6:password}\'\n  multi_az \'${7:false}\'\n  db_subnet_group_name \'${8:db-subnet-group}\'\nend'
@@ -61,13 +61,13 @@
     'body': 'aws_rds_subnet_group \'${1:db-subnet-group}\' do\n  db_subnet_group_description \'${2:description}\'\n  subnets \[\'subnet\', \'${3:subnet2.aws_object.id}\' \]\nend'
   'aws_route_table':
     'prefix': 'aws_route_table'
-    'body': 'aws_route_table \'${1:name}\' do\n  vpc \'${2:ref-vpc}\'\n  routes \'0.0.0.0\/0\' => :${3:internet_gateway}\n  aws_tags :${7:chef_type} ${8:aws_route_table}\nend'
+    'body': 'aws_route_table \'${1:name}\' do\n  vpc \'${2:ref-vpc}\'\n  routes \'${3:0.0.0.0\/0}\' => :${4:internet_gateway}\n  aws_tags :${5:chef_type} \'${6:aws_route_table}\'\nend'
   'aws_s3_bucket':
     'prefix': 'aws_s3_bucket'
     'body': 'aws_s3_bucket \'${1:name}\' do\n  action :${2:create}\nend'
   'aws_security_group':
     'prefix': 'aws_security_group'
-    'body' 'aws_security_group \'${1:name}\' do\n  vpc \'${2:ref-vpc}\'\n  inbound_rules \'${3:0.0.0.0}\' => \[ 22, 80 \]\n  outbound_rules \[\n    \{:port => ${4:22..22,} :protocol => :${5:tcp}, :destinations => \[${6:0.0.0.0\/0}\] \}\n  aws_tags :${7:chef_type} ${8:aws_security_group}\nend'
+    'body': 'aws_security_group \'${1:name}\' do\n  vpc \'${2:ref-vpc}\'\n  inbound_rules \'${3:0.0.0.0}\' => \[ ${4:22, 80} \]\n  outbound_rules \[\n    \{:port => ${5:22..22,} :protocol => :${6:tcp}, :destinations => \[\'${7:0.0.0.0\/0}\'\] \}\n  aws_tags :${8:chef_type} \'${9:aws_security_group}\'\nend'
   'aws_server_certificate':
     'prefix': 'aws_server_certificate'
     'body': 'aws_server_certificate \'${1:name}\' do\n  certificate_body \'${2:path_to_certificate}\'\n  private_key \'${3:path_to_private_key}\'\nend'
@@ -79,10 +79,19 @@
     'body': 'aws_sqs_queue \'${1:name}\' do\n  options \(\{ ${2:HASH} \}\)\nend'
   'aws_subnet':
     'prefix': 'aws_subnet'
-    'body': 'aws_subnet \'${1:name}\' do\n  vpc \'${2:ref-vpc}\'\n  cidr_block \'${3:10.0.0.0\/24}\'\n  availability_zone \'${4:us-west-1a}\'\n  map_public_ip_on_launch ${5:true}\n  route_table \'${6:ref-public}\'\n  aws_tags :${7:chef_type} ${8:aws_subnet}\nend'
+    'body': 'aws_subnet \'${1:name}\' do\n  vpc \'${2:ref-vpc}\'\n  cidr_block \'${3:10.0.0.0\/24}\'\n  availability_zone \'${4:us-west-1a}\'\n  map_public_ip_on_launch ${5:true}\n  route_table \'${6:ref-public}\'\n  aws_tags :${7:chef_type} \'${8:aws_subnet}\'\nend'
   'aws_vpc':
-    'prefix':
-    'body': 'aws_vpc \'${1:name}\' do\n  cidr_block \'${2:10.0.0.0\/24}\'\n  internet_gateway ${3:true}\n  instance_tenancy :${4:default}\n  main_routes \'${5:0.0.0.0\/0}\' => :internet_gateway\n  dhcp_options \'${6:ref-dhcp-options}\'\n  enable_dns_support ${7:true}\n  enable_dns_hostnames ${8:true}\n  aws_tags :${9:chef_type} ${8:aws_vpc}\nend'
+    'prefix': 'aws_vpc'
+    'body': 'aws_vpc \'${1:name}\' do\n  cidr_block \'${2:10.0.0.0\/24}\'\n  internet_gateway ${3:true}\n  instance_tenancy :${4:default}\n  main_routes \'${5:0.0.0.0\/0}\' => :${6:internet_gateway}\n  dhcp_options \'${7:ref-dhcp-options}\'\n  enable_dns_support ${8:true}\n  enable_dns_hostnames ${9:true}\n  aws_tags :${10:chef_type} \'${11:aws_vpc}\'\nend'
+  'azure_cloud_service':
+    'prefix': 'azure_cloud_service'
+    'body': 'azure_cloud_service \'${1:name}\' do\n  action :${2:create}\nend'
+  'azure_sql_server':
+    'prefix': 'azure_sql_server'
+    'body': 'azure_sql_server \'${1:name}\' do\n  action :${2:create}\nend'
+  'azure_storage_account':
+    'prefix': 'azure_storage_account'
+    'body': 'azure_storage_account \'${1:name}\' do\n  action :${2:create}\nend'
   'bash':
     'prefix': 'bash'
     'body': 'bash \'${1:a bash script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:wget http://www.example.com/tarball.tar.bz\n  tar -zxf tarball.tar.gz\n  cd tarball\n  ./configure\n  make\n  make install}\n  EOH\nend'
@@ -107,6 +116,12 @@
   'csh':
     'prefix': 'csh'
     'body': 'csh \'${1:a csh script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:foreach i ( 10 15 20 40 )\n    echo $i\n  end}\n  EOH\nend'
+  'dsc_resource':
+    'prefix': 'dsc_resource'
+    'body': 'dsc_resource \'${1:name}\' do\n  resource :${2:archive}\n  property :${3:ensure}, \'${4:Present}\'\n  property :${5:path} \"${6:C:\\\\Users\\\\Public\\\\Documents\\\\example.zip\}"\n  property :${7:destination} \"${8:C:\\\\Users\\\\Public\\\\Documents\\\\ExtractionPath\}"\nend'
+  'dsc_script':
+    'prefix': 'dsc_script'
+    'body': 'dsc_script \'${1:name}\' do\n  code <<-EOH\n  ${2:}\n  EOH\nend'
   'deploy':
     'prefix': 'deploy'
     'body': 'deploy \'${1:/my/deploy/dir}\' do\n  repo \'${2:git@github.com/whoami/project}\'\n  user \'${3:deploy_ninja}\'\n  migrate ${4:true}\n  migration_command \'${5:rake db:migrate}\'\n  environment ${6:\'RAILS_ENV\' => \'production\', \'OTHER_ENV\' => \'foo\'}\n  action :${7:deploy}\n  scm_provider ${8:Chef::Provider::Git}\nend'
@@ -178,7 +193,7 @@
     'body': 'machine \'${1:name}\' do\n  action :${2:converge}\nend'
   'machine_batch':
     'prefix': 'machine_batch'
-    'body': 'machine_batch \'${1:name}\' do\n\nend'
+    'body': 'machine_batch \'${1:name}\' do\n  ${2:}\nend'
   'machine_execute':
     'prefix': 'machine_execute'
     'body': 'machine_execute \'${1:name}\' do\n  action :${2:run}\nend'
