@@ -5,12 +5,99 @@
   'apt_package':
     'prefix': 'apt_package'
     'body': 'apt_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'aws_auto_scaling_group':
+    'prefix': 'aws_auto_scaling_group'
+    'body': 'aws_auto_scaling_group \'${1:name}\' do\n  availability_zones \[${2:us-west-1}\]\n  desired_capacity ${3:2}\n  min_size ${4:1}\n  max_size ${5:3}\n  launch_configuration \'${6:ref-launch-configuration}\'\n  load_balancers \'${7:ref-load-balancer}\'\n  options subnets: \'${8:ref-subnets}\'\nend'
+  'aws_cache_cluster':
+    'prefix': 'aws_cache_cluster'
+    'body': 'aws_cache_cluster \'${1:name}\' do\n  az_mode \'${2:single-az}\'\n  engine \'${3:name}\'\n  engine_version \'${4:1.2.3}\'\n  node_type \'${5:cache.m3.large}\'\n  number_nodes \'${6:10}\'\n  preferred_availability_zones [\n    \'${7:PreferredAvailabilityZones.member.1=us-east-1a}\'\n  ]\nend'
+  'aws_cache_replication_group':
+    'prefix': 'aws_cache_replication_group'
+    'body': 'aws_cache_replication_group \'${1:name}\' do\n  automatic_failover ${2:true}\n  engine \'${3:name}\'\n  engine_version \'${4:1.2.3}\'\n  node_type \'${5:cache.m3.large}\'\n  number_cache_clusters \'${6:3}\'\n  preferred_availability_zones [\n    \'${7:PreferredAvailabilityZones.member.1=us-east-1a}\'\n  ]\n  subnet_group_name \'${8:subnet-1}\'\nend'
+  'aws_cache_subnet_group':
+    'prefix': 'aws_cache_subnet_group'
+    'body': 'aws_cache_subnet_group \'${1:name}\' do\n  description \'${2:Description of cache subnet group.}\'\n  subnets \[ \'${3:subnet}\', \'${4:subnet}\' \]\nend'
+  'aws_cloudsearch_domain':
+    'prefix': 'aws_cloudsearch_domain'
+    'body': 'aws_cloudsearch_domain \'${1:ref-cs-domain}\' do\n  instance_type \'${2:search.m1.small}\'\n  partition_count ${3:2}\n  replication_count ${4:2}\n  index_fields \[${5:}\]\nend'
+  'aws_dhcp_options':
+    'prefix': 'aws_dhcp_options'
+    'body': 'aws_dhcp_options \'${1:name}\' do\n  domain_name \'${2:example.com}\'\n  domain_name_servers ${3:\%w\(8.8.8.8 8.8.4.4\)}\n  ntp_servers ${4:\%w\(8.8.8.8 8.8.4.4\)}\n  netbios_name_servers ${5:\%w\(8.8.8.8 8.8.4.4\)}\n  aws_tags :${6:chef_type} ${7:name}\nend'
+  'aws_ebs_volume':
+    'prefix': 'aws_ebs_volume'
+    'body': 'aws_ebs_volume \'${1:name}\' do\n  machine \'${2:ref-machine-1}\'\n  availability_zone \'${3:a}\'\n  size ${4:100}\n  iops ${5:3000}\n  volume_type \'${6:io1}\'\n  encrypted ${7:true}\n  device \'${8:/dev/sda2}\'\n  aws_tags :${9:chef_type} ${10:aws_ebs_volume}\nend'
+  'aws_eip_address':
+    'prefix': 'aws_eip_address'
+    'body': 'aws_eip_address \'${1:name}\' do\n  machine \'${2:ref-machine-1}\'\n  associate_to_vpc ${3:true}\n  public_ip \'${4:205.32.21.0}\'\nend'
+  'aws_image':
+    'prefix': 'aws_image'
+    'body': 'aws_image \'${1:name}\' do\n  image_id \'${2:image-1}\'\nend'
+  'aws_instance':
+    'prefix': 'aws_instance'
+    'body': 'aws_instance \'${1:name}\' do\n  instance_id \'${2:instance-1}\'\nend'
+  'aws_internet_gateway':
+    'prefix': 'aws_internet_gateway'
+    'body': 'aws_internet_gateway \'${1:name}\' do\n  internet_gateway_id \'${2:1234567890}\'\nend'
+  'aws_keypair':
+    'prefix': 'aws_keypair'
+    'body': 'aws_keypair \'${1:name}\' do\n  allow_overwrite ${2:true}\n  private_key_options ${3:HASH}\nend'
+  'aws_launch_configuration':
+    'prefix':
+    'body': 'aws_launch_configuration \'${1:ref-launch-configuration}\' do\n  image \'${2:image-1}\'\n  instance_type \'${3:t2.micro}\'\n  options ${4:security_groups}: \'${5:ref-security-group}\'\nend'
+  'aws_loadbalancer':
+    'prefix': 'aws_loadbalancer'
+    'body': 'aws_loadbalancer \'${1:name}\' do\n  loadbalancer_id \'${2:lb-1}\'\nend'
+  'aws_network_acl':
+    'prefix': 'aws_network_acl'
+    'body': 'aws_network_acl \'${1:name}\' do\n  vpc \'${2:ref-vpc}\'\n  inbound_rules \'${3:0.0.0.0}\' => \[ 22, 80 \]\n  outbound_rules \[\n    \{:port => ${4:22..22,} :protocol => :${5:tcp}, :destinations => \[${6:0.0.0.0\/0}\] \}\n  aws_tags :${7:chef_type} ${8:aws_security_group}\nend'
+  'aws_network_interface':
+    'prefix': 'aws_network_interface'
+    'body': 'aws_network_interface \'${1:name}\' do\n  machine \'${2:ref-machine-1}\'\n  device_index ${3:2}\n  subnet \'${4:ref-subnet}\'\n  security_groups \[\' ${5:ref-security-group} \'\]\n  description \'${6:ref-eni-desc}\'\nend'
+  'aws_rds_instance':
+    'prefix': 'aws_rds_instance'
+    'body': 'aws_rds_instance \'${1:rds-instance}\' do\n  engine \'${2:postgres}\'\n  publicly_accessible ${3:false}\n  db_instance_class \'${4:db.t1.micro}\'\n  master_username \'${5:user}\'\n  master_user_password \'${6:password}\'\n  multi_az \'${7:false}\'\n  db_subnet_group_name \'${8:db-subnet-group}\'\nend'
+  'aws_rds_subnet_group':
+    'prefix': 'aws_rds_subnet_group'
+    'body': 'aws_rds_subnet_group \'${1:db-subnet-group}\' do\n  db_subnet_group_description \'${2:description}\'\n  subnets \[\'subnet\', \'${3:subnet2.aws_object.id}\' \]\nend'
+  'aws_route_table':
+    'prefix': 'aws_route_table'
+    'body': 'aws_route_table \'${1:name}\' do\n  vpc \'${2:ref-vpc}\'\n  routes \'0.0.0.0\/0\' => :${3:internet_gateway}\n  aws_tags :${7:chef_type} ${8:aws_route_table}\nend'
+  'aws_s3_bucket':
+    'prefix': 'aws_s3_bucket'
+    'body': 'aws_s3_bucket \'${1:name}\' do\n  action :${2:create}\nend'
+  'aws_security_group':
+    'prefix': 'aws_security_group'
+    'body' 'aws_security_group \'${1:name}\' do\n  vpc \'${2:ref-vpc}\'\n  inbound_rules \'${3:0.0.0.0}\' => \[ 22, 80 \]\n  outbound_rules \[\n    \{:port => ${4:22..22,} :protocol => :${5:tcp}, :destinations => \[${6:0.0.0.0\/0}\] \}\n  aws_tags :${7:chef_type} ${8:aws_security_group}\nend'
+  'aws_server_certificate':
+    'prefix': 'aws_server_certificate'
+    'body': 'aws_server_certificate \'${1:name}\' do\n  certificate_body \'${2:path_to_certificate}\'\n  private_key \'${3:path_to_private_key}\'\nend'
+  'aws_sns_topic':
+    'prefix': 'aws_sns_topic'
+    'body': 'aws_sns_topic \'${1:name}\' do\n  arn \'${2:arn:aws:sns:us-west-1:5060091557628:seapower}\'\nend'
+  'aws_sqs_queue':
+    'prefix': 'aws_sqs_queue'
+    'body': 'aws_sqs_queue \'${1:name}\' do\n  options \(\{ ${2:HASH} \}\)\nend'
+  'aws_subnet':
+    'prefix': 'aws_subnet'
+    'body': 'aws_subnet \'${1:name}\' do\n  vpc \'${2:ref-vpc}\'\n  cidr_block \'${3:10.0.0.0\/24}\'\n  availability_zone \'${4:us-west-1a}\'\n  map_public_ip_on_launch ${5:true}\n  route_table \'${6:ref-public}\'\n  aws_tags :${7:chef_type} ${8:aws_subnet}\nend'
+  'aws_vpc':
+    'prefix':
+    'body': 'aws_vpc \'${1:name}\' do\n  cidr_block \'${2:10.0.0.0\/24}\'\n  internet_gateway ${3:true}\n  instance_tenancy :${4:default}\n  main_routes \'${5:0.0.0.0\/0}\' => :internet_gateway\n  dhcp_options \'${6:ref-dhcp-options}\'\n  enable_dns_support ${7:true}\n  enable_dns_hostnames ${8:true}\n  aws_tags :${9:chef_type} ${8:aws_vpc}\nend'
   'bash':
     'prefix': 'bash'
     'body': 'bash \'${1:a bash script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:wget http://www.example.com/tarball.tar.bz\n  tar -zxf tarball.tar.gz\n  cd tarball\n  ./configure\n  make\n  make install}\n  EOH\nend'
+  'bff_package':
+    'prefix': 'bff_package'
+    'body': 'bff_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'breakpoint':
+    'prefix': 'breakpoint'
+    'body': 'breakpoint \'${1:name}\' do\n  action :${2:break}\nend'
   'chef_gem':
     'prefix': 'chef_gem'
-    'body': 'chef_gem \'${1:right_aws}\' do\n  action :${2:install}\'\nend'
+    'body': 'chef_gem \'${1:right_aws}\' do\n  action :${2:install}\nend'
+  'chef_handler':
+    'prefix': 'chef_handler'
+    'body': 'chef_handler \'${1:name_of_handler}\' do\n  source \'${2:path_to_source}\'\n  action :${3:enable}\nend'
   'cookbook_file':
     'prefix': 'cookbook_file'
     'body': 'cookbook_file \'${1:/tmp/testfile}\' do\n  source \'${2:testfile}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0644}\'\nend'
@@ -56,6 +143,9 @@
   'group':
     'prefix': 'group'
     'body': 'group \'${1:group}\' do\n  members [\'${2:kyle}\', \'${3:cartman}\']\n  action :${4:create}\nend'
+  'homebrew_package':
+    'prefix': 'homebrew_package'
+    'body': 'homebrew_package \'${1:name}\' do\n  action :${2:install}\nend'
   'http_request':
     'prefix': 'http_request'
     'body': 'http_request \'${1:description}\' do\n  url \'${2:http://example.com/check_in}\'\n  message :${3:key} => \'${4:value}\'\n  action :${5:post}\nend'
@@ -74,15 +164,30 @@
   'link':
     'prefix': 'link'
     'body': 'link \'${1:/tmp/passwd}\' do\n  to \'${2:/etc/passwd}\'\nend'
-  'package':
-      'prefix': 'package'
-      'body': 'package \'${1:name}\' do\n action :${2:install}\nend'
   'remote':
     'prefix': 'remote'
     'body': 'remote_file \'${1:/opt/chef/file}\' do\n  source \'${2:http://myfile}\'\n  owner \'${3:root}\'\n  group \'${4:$3}\'\n  checksum \'${5:abc123}\'\nend'
+  'loadbalancer':
+    'prefix': 'loadbalancer'
+    'body': 'loadbalancer \'${1:name}\' do\n  action :${2:create}\nend'
   'log':
     'prefix': 'log'
     'body': 'log \'${1:name}\' do\n  message \"${2:This is a message that will be added to the log.}\"\n  level :${3:info}\nend'
+  'machine':
+    'prefix': 'machine'
+    'body': 'machine \'${1:name}\' do\n  action :${2:converge}\nend'
+  'machine_batch':
+    'prefix': 'machine_batch'
+    'body': 'machine_batch \'${1:name}\' do\n\nend'
+  'machine_execute':
+    'prefix': 'machine_execute'
+    'body': 'machine_execute \'${1:name}\' do\n  action :${2:run}\nend'
+  'machine_file':
+    'prefix': 'machine_file'
+    'body': 'machine_file \'${1:name}\' do\n  action :${2:upload}\nend'
+  'machine_image':
+    'prefix': 'machine_image'
+    'body': 'machine_image \'${1:name}\' do\n  action :${2:create}\nend'
   'macports_package':
     'prefix': 'macports_package'
     'body': 'macports_package \'${1:name}\' do\n  action :${2:install}\nend'
@@ -104,15 +209,21 @@
   'only_if':
     'prefix': 'only_if'
     'body': 'only_if "${1}"'
+  'openbsd_package':
+    'prefix': 'openbsd_package'
+    'body': 'openbsd_package \'${1:name}\' do\n  action :${2:install}\nend'
   'package':
     'prefix': 'package'
-    'body': 'package \'${1:name}\' do\n action :${2:install}\nend'
+    'body': 'package \'${1:name}\' do\n  action :${2:install}\nend'
   'provider':
     'prefix': 'provider'
     'body': 'provider Chef::Provider::${1:Package::Rubygems}\n'
   'pacman_package':
     'prefix': 'pacman_package'
     'body': 'pacman_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'paludis_package':
+    'prefix': 'paludis_package'
+    'body': 'paludis_package \'${1:name}\' do\n  action :${2:install}\nend'
   'perl':
     'prefix': 'perl'
     'body': 'perl \'${1:a perl script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:# hello.pl\n  #  - Displays a warm greeting\n  print \"Hello, World!\\n\";}\n  EOH\nend'
@@ -125,6 +236,9 @@
   'python':
     'prefix': 'python'
     'body': 'python \'${1:a python script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH  ${4:friends = [\'john\', \'pat\', \'gary\', \'michael\']\n  for i, name in enumerate(friends):\n      print \"iteration {iteration} is {name}\".format(iteration=i, name=name)}\nend'
+  'reboot':
+    'prefix': 'reboot'
+    'body': 'reboot \'${1:now}\' do\n  action :${2:nothing}\n  reason \'${3:Need to reboot when the run completes successfully.}\'\n  delay_mins ${4:5}\nend'
   'registry_key':
     'prefix': 'registry_key'
     'body': 'registry_key \'${1:HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\name_of_registry_key}\' do\n  values [{:name => \'${2:NewRegistryKeyValue}\', :type => :${3:string}, :data => ${4:\'C:\Windows\System32\file_name.bmp\'}}]\n  action :${5:create}\nend'
@@ -179,6 +293,12 @@
   'user':
     'prefix': 'user'
     'body': 'user \'${1:random}\' do\n  comment \'${2:Random User}\'\n  uid \'${3:1000}\'\n  gid \'${4:users}\'\n  shell \'${5:/bin/zsh}\'\nend'
+  'windows_package':
+    'prefix': 'windows_package'
+    'body': 'windows_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'windows_service':
+    'prefix': 'windows_service'
+    'body': 'windows_service \'${1:BITS}\' do\n  action :${2:configure_startup}\n  startup_type :${3:manual}\nend'
   'yum_package':
     'prefix': 'yum_package'
     'body': 'yum_package \'${1:name}\' do\n  action :${2:install}\nend'
