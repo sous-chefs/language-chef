@@ -304,7 +304,7 @@
     'body': 'template \'${1:/tmp/config.conf}\' do\n  source \'${2:config.conf.erb}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode ${5:00744}\nend'
   'templatev':
     'prefix': 'templatev'
-    'body': 'template "${1:name}" do\n source "${2:source}.erb"\nowner "root"\n  group "root"\n  node "0644"\n   variables( ${3::config_var => node[:configs][:config_var]}  )\nend'
+    'body': 'template "${1:name}" do\n source "${2:source}.erb"\n  owner "root"\n  group "root"\n  node "0644"\n   variables( ${3::config_var => node[:configs][:config_var]}  )\nend'
   'user':
     'prefix': 'user'
     'body': 'user \'${1:random}\' do\n  comment \'${2:Random User}\'\n  uid \'${3:1000}\'\n  gid \'${4:users}\'\n  shell \'${5:/bin/zsh}\'\nend'
