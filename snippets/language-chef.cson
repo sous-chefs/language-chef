@@ -256,7 +256,7 @@
     'body': 'reboot \'${1:now}\' do\n  action :${2:nothing}\n  reason \'${3:Need to reboot when the run completes successfully.}\'\n  delay_mins ${4:5}\nend'
   'registry_key':
     'prefix': 'registry_key'
-    'body': 'registry_key \'${1:HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\name_of_registry_key}\' do\n  values [{:name => \'${2:NewRegistryKeyValue}\', :type => :${3:string}, :data => ${4:\'C:\Windows\System32\file_name.bmp\'}}]\n  action :${5:create}\nend'
+    'body': 'registry_key \'${1:HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\name_of_registry_key}\' do\n  values [{:name => \'${2:NewRegistryKeyValue}\', :type => :${3:string}, :data => ${4:\'C:\\\\Windows\\\\System32\\\\file_name.bmp\'}}]\n  action :${5:create}\nend'
   'remote_directory':
     'prefix': 'remote_directory'
     'body': 'remote_directory \'${1:/foo/bar/baz}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode ${3:00755}\n  action :${4:create}\nend'
