@@ -1,6 +1,6 @@
 {
   "name": "language-chef",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "private": true,
   "description": "Atom support for Chef.",
   "repository": "https://github.com/darron/language-chef",
