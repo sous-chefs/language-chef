@@ -298,7 +298,7 @@
     'body': 'solaris_package \'${1:name}\' do\n  action :${2:install}\nend'
   'subscribes':
     'prefix': 'subscribes'
-    'body': 'subscribes :${1:restart}, "${2:template}[${3:name}]"'
+    'body': 'subscribes :${1:restart}, \'${2:template}[${3:name}]\''
   'subversion':
     'prefix': 'subversion'
     'body': 'subversion \'${1:CouchDB Edge}\' do\n  repository \'${2:http://svn.apache.org/repos/asf/couchdb/trunk}\'\n  revision \'${3:HEAD}\'\n  destination \'${4:/opt/mysources/couch}\'\n  action :${5:sync}\nend'
