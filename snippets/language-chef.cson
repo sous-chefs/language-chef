@@ -283,7 +283,7 @@
     'body': 'script \'${1:desc}\' do\n  interpreter \'${2:bash}\'\n  user \'${3:root}\'\n  cwd \'${4:/tmp}\'\n  code <<-EOF\n\t${5:script commands}\n  EOF\nend'
   'service':
     'prefix': 'service'
-    'body': 'service \'${1:service}\' do\n  supports :${2:status} => true\n  action [ :${3:enable}, :${3:start} ]\nend'
+    'body': 'service \'${1:service}\' do\n  supports ${2:status}: true\n  action [:${3:enable}, :${3:start}]\nend'
   'smartos_package':
     'prefix': 'smartos_package'
     'body': 'smartos_package \'${1:name}\' do\n  action :${2:install}\nend'
@@ -298,7 +298,7 @@
     'body': 'subversion \'${1:CouchDB Edge}\' do\n  repository \'${2:http://svn.apache.org/repos/asf/couchdb/trunk}\'\n  revision \'${3:HEAD}\'\n  destination \'${4:/opt/mysources/couch}\'\n  action :${5:sync}\nend'
   'supports':
     'prefix': 'supports'
-    'body': 'supports :status => :${1:true}, :restart => :${2:true}, :reload => :${3:true}'
+    'body': 'supports status: ${1:true}, restart: ${2:true}, reload: ${3:true}'
   'template':
     'prefix': 'template'
     'body': 'template \'${1:/tmp/config.conf}\' do\n  source \'${2:config.conf.erb}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0744}\'\nend'
