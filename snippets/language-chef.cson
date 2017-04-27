@@ -8,6 +8,9 @@
   'apt_repository':
     'prefix': 'apt_repository'
     'body': 'apt_repository \'${1:name}\' do\n  uri \'${2:https://example.com/deb}\'\n  components [${3:\'main\'}]\n  action :${4:add}\nend'
+  'apt_update':
+    'prefix': 'apt_update'
+    'body': 'apt_update \'${1:name}\' do\n  ignore_failure ${2:true}\n  action :${3:update}\nend'
   'aws_auto_scaling_group':
     'prefix': 'aws_auto_scaling_group'
     'body': 'aws_auto_scaling_group \'${1:name}\' do\n  availability_zones \[ \'${2:us-west-1}\' \]\n  desired_capacity ${3:2}\n  min_size ${4:1}\n  max_size ${5:3}\n  launch_configuration \'${6:ref-launch-configuration}\'\n  load_balancers \'${7:ref-load-balancer}\'\n  options subnets: \'${8:ref-subnets}\'\nend'
@@ -98,6 +101,9 @@
   'bash':
     'prefix': 'bash'
     'body': 'bash \'${1:a bash script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:wget http://www.example.com/tarball.tar.bz\n  tar -zxf tarball.tar.gz\n  cd tarball\n  ./configure\n  make\n  make install}\n  EOH\nend'
+  'batch':
+    'prefix': 'batch'
+    'body': 'batch \'${1:a batch script}\' do\n  user \'${2:Administrator}\'\n  cwd \'${3:C:\\\\temp}\'\n  code <<-EOH\n  ${4:  echo %TEMP%\n    echo %SYSTEMDRIVE%\n    echo %PATH%\n    echo %WINDIR%}\n    EOH\nend'
   'bff_package':
     'prefix': 'bff_package'
     'body': 'bff_package \'${1:name}\' do\n  action :${2:install}\nend'
