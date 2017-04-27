@@ -109,7 +109,7 @@
     'body': 'chef_handler \'${1:name_of_handler}\' do\n  source \'${2:path_to_source}\'\n  action :${3:enable}\nend'
   'cookbook_file':
     'prefix': 'cookbook_file'
-    'body': 'cookbook_file \'${1:/tmp/testfile}\' do\n  source \'${2:testfile}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode ${5:00644}\nend'
+    'body': 'cookbook_file \'${1:/tmp/testfile}\' do\n  source \'${2:testfile}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0644}\'\nend'
   'cron':
     'prefix': 'cron'
     'body': 'cron \'${1:name}\' do\n  hour \'${2:5}\'\n  minute \'${3:5}\'\n  command \'${3:/bin/script}\'\nend'
@@ -127,7 +127,7 @@
     'body': 'deploy \'${1:/my/deploy/dir}\' do\n  repo \'${2:git@github.com/whoami/project}\'\n  user \'${3:deploy_ninja}\'\n  migrate ${4:true}\n  migration_command \'${5:rake db:migrate}\'\n  environment ${6:\'RAILS_ENV\' => \'production\', \'OTHER_ENV\' => \'foo\'}\n  action :${7:deploy}\n  scm_provider ${8:Chef::Provider::Git}\nend'
   'directory':
     'prefix': 'directory'
-    'body': 'directory \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode ${4:00755}\n  recursive true\n  action :create\nend'
+    'body': 'directory \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode \'${4:0755}\'\n  recursive true\n  action :create\nend'
   'dpkg_package':
     'prefix': 'dpkg_package'
     'body': 'dpkg_package \'${1:name}\' do\n  action :${2:install}\nend'
@@ -145,7 +145,7 @@
     'body': 'execute \'${1:name}\' do\n  command \'${2:command}\'\n  action :run\nend'
   'file':
     'prefix': 'file'
-    'body': 'file \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode ${4:00755}\n  action :${5:create}\nend'
+    'body': 'file \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode \'${4:0755}\'\n  action :${5:create}\nend'
   'freebsd_package':
     'prefix': 'freebsd_package'
     'body': 'freebsd_package \'${1:name}\' do\n  action :${2:install}\nend'
@@ -259,7 +259,7 @@
     'body': 'registry_key \'${1:HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\name_of_registry_key}\' do\n  values [{:name => \'${2:NewRegistryKeyValue}\', :type => :${3:string}, :data => ${4:\'C:\\\\Windows\\\\System32\\\\file_name.bmp\'}}]\n  action :${5:create}\nend'
   'remote_directory':
     'prefix': 'remote_directory'
-    'body': 'remote_directory \'${1:/foo/bar/baz}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode ${3:00755}\n  action :${4:create}\nend'
+    'body': 'remote_directory \'${1:/foo/bar/baz}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode \'${3:0755}\'\n  action :${4:create}\nend'
   'remote_file':
     'prefix': 'remote_file'
     'body': 'remote_file \'${1:/opt/chef/file}\' do\n  source \'${2:http://myfile}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  checksum \'${5:abc123}\'\nend'
@@ -301,7 +301,7 @@
     'body': 'supports :status => :${1:true}, :restart => :${2:true}, :reload => :${3:true}'
   'template':
     'prefix': 'template'
-    'body': 'template \'${1:/tmp/config.conf}\' do\n  source \'${2:config.conf.erb}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode ${5:00744}\nend'
+    'body': 'template \'${1:/tmp/config.conf}\' do\n  source \'${2:config.conf.erb}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0744}\'\nend'
   'templatev':
     'prefix': 'templatev'
     'body': 'template "${1:name}" do\n source "${2:source}.erb"\n  owner "root"\n  group "root"\n  node "0644"\n   variables( ${3::config_var => node[:configs][:config_var]}  )\nend'
