@@ -110,12 +110,18 @@
   'breakpoint':
     'prefix': 'breakpoint'
     'body': 'breakpoint \'${1:name}\' do\n  action :${2:break}\nend'
+  'cab_package':
+    'prefix': 'cab_package'
+    'body': 'cab_package \'${1:name}\' do\n  source ${2:\'C:\\\\example.cab\'}\n  action :${3:install}\nend'
   'chef_gem':
     'prefix': 'chef_gem'
     'body': 'chef_gem \'${1:right_aws}\' do\n  action :${2:install}\nend'
   'chef_handler':
     'prefix': 'chef_handler'
     'body': 'chef_handler \'${1:name_of_handler}\' do\n  source \'${2:path_to_source}\'\n  action :${3:enable}\nend'
+  'chocolatey_package':
+    'prefix': 'cab_package'
+    'body': 'cab_package \'${1:name}\' do\n  action :${3:install}\nend'
   'cookbook_file':
     'prefix': 'cookbook_file'
     'body': 'cookbook_file \'${1:/tmp/testfile}\' do\n  source \'${2:testfile}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0644}\'\nend'
@@ -125,6 +131,9 @@
   'csh':
     'prefix': 'csh'
     'body': 'csh \'${1:a csh script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:foreach i ( 10 15 20 40 )\n    echo $i\n  end}\n  EOH\nend'
+  'dnf_package':
+    'prefix': 'dnf_package'
+    'body': 'dnf_package \'${1:name}\' do\n  action :${2:install}\nend'
   'dsc_resource':
     'prefix': 'dsc_resource'
     'body': 'dsc_resource \'${1:name}\' do\n  resource :${2:archive}\n  property :${3:ensure}, \'${4:Present}\'\n  property :${5:path} \"${6:C:\\\\Users\\\\Public\\\\Documents\\\\example.zip\}"\n  property :${7:destination} \"${8:C:\\\\Users\\\\Public\\\\Documents\\\\ExtractionPath\}"\nend'
