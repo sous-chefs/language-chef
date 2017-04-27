@@ -5,6 +5,9 @@
   'apt_package':
     'prefix': 'apt_package'
     'body': 'apt_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'apt_repository':
+    'prefix': 'apt_repository'
+    'body': 'apt_repository \'${1:name}\' do\n  uri \'${2:https://example.com/deb}\'\n  components [${3:\'main\'}]\n  action :${4:add}\nend'
   'aws_auto_scaling_group':
     'prefix': 'aws_auto_scaling_group'
     'body': 'aws_auto_scaling_group \'${1:name}\' do\n  availability_zones \[ \'${2:us-west-1}\' \]\n  desired_capacity ${3:2}\n  min_size ${4:1}\n  max_size ${5:3}\n  launch_configuration \'${6:ref-launch-configuration}\'\n  load_balancers \'${7:ref-load-balancer}\'\n  options subnets: \'${8:ref-subnets}\'\nend'
