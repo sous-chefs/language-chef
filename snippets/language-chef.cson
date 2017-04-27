@@ -131,9 +131,6 @@
   'dpkg_package':
     'prefix': 'dpkg_package'
     'body': 'dpkg_package \'${1:name}\' do\n  action :${2:install}\nend'
-  'easy_install_package':
-    'prefix': 'easy_install_package'
-    'body': 'easy_install_package \'${1:name}\' do\n  action :${2:install}\nend'
   'env':
     'prefix': 'env'
     'body': 'env \'${1:ComSpec}\' do\n  value \'${2:C:\\\\Windows\\\\system32\\\\cmd.exe}\'\nend'
