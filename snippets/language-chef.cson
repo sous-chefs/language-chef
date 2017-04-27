@@ -134,12 +134,6 @@
   'dnf_package':
     'prefix': 'dnf_package'
     'body': 'dnf_package \'${1:name}\' do\n  action :${2:install}\nend'
-  'dsc_resource':
-    'prefix': 'dsc_resource'
-    'body': 'dsc_resource \'${1:name}\' do\n  resource :${2:archive}\n  property :${3:ensure}, \'${4:Present}\'\n  property :${5:path} \"${6:C:\\\\Users\\\\Public\\\\Documents\\\\example.zip\}"\n  property :${7:destination} \"${8:C:\\\\Users\\\\Public\\\\Documents\\\\ExtractionPath\}"\nend'
-  'dsc_script':
-    'prefix': 'dsc_script'
-    'body': 'dsc_script \'${1:name}\' do\n  code <<-EOH\n  ${2:}\n  EOH\nend'
   'deploy':
     'prefix': 'deploy'
     'body': 'deploy \'${1:/my/deploy/dir}\' do\n  repo \'${2:git@github.com/whoami/project}\'\n  user \'${3:deploy_ninja}\'\n  migrate ${4:true}\n  migration_command \'${5:rake db:migrate}\'\n  environment ${6:\'RAILS_ENV\' => \'production\', \'OTHER_ENV\' => \'foo\'}\n  action :${7:deploy}\n  scm_provider ${8:Chef::Provider::Git}\nend'
@@ -149,6 +143,12 @@
   'dpkg_package':
     'prefix': 'dpkg_package'
     'body': 'dpkg_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'dsc_resource':
+    'prefix': 'dsc_resource'
+    'body': 'dsc_resource \'${1:name}\' do\n  resource :${2:archive}\n  property :${3:ensure}, \'${4:Present}\'\n  property :${5:path} \"${6:C:\\\\Users\\\\Public\\\\Documents\\\\example.zip\}"\n  property :${7:destination} \"${8:C:\\\\Users\\\\Public\\\\Documents\\\\ExtractionPath\}"\nend'
+  'dsc_script':
+    'prefix': 'dsc_script'
+    'body': 'dsc_script \'${1:name}\' do\n  code <<-EOH\n  ${2:}\n  EOH\nend'
   'env':
     'prefix': 'env'
     'body': 'env \'${1:ComSpec}\' do\n  value \'${2:C:\\\\Windows\\\\system32\\\\cmd.exe}\'\nend'
