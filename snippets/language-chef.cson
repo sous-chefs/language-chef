@@ -120,8 +120,8 @@
     'prefix': 'chef_handler'
     'body': 'chef_handler \'${1:name_of_handler}\' do\n  source \'${2:path_to_source}\'\n  action :${3:enable}\nend'
   'chocolatey_package':
-    'prefix': 'cab_package'
-    'body': 'cab_package \'${1:name}\' do\n  action :${3:install}\nend'
+    'prefix': 'chocolatey_package'
+    'body': 'chocolatey_package \'${1:name}\' do\n  action :${3:install}\nend'
   'cookbook_file':
     'prefix': 'cookbook_file'
     'body': 'cookbook_file \'${1:/tmp/testfile}\' do\n  source \'${2:testfile}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0644}\'\nend'
@@ -230,6 +230,9 @@
   'mount':
     'prefix': 'mount'
     'body': 'mount \'${1:/mnt/volume1}\' do\n  device \'${2:volume1}\'\n  fstype \'${3:xfs}\'\n  action :${4:mount}\nend'
+  'msu_package':
+    'prefix': 'msu_package'
+    'body': 'msu_package \'${1:name}\' do\n  source ${2:\'C:\\\\example.msu\'}\n  action :${3:install}\nend'
   'not_if':
     'prefix': 'not_if'
     'body': 'not_if "${1}"'
@@ -332,3 +335,6 @@
   'yum_package':
     'prefix': 'yum_package'
     'body': 'yum_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'zypper_package':
+    'prefix': 'zypper_package'
+    'body': 'zypper_package \'${1:name}\' do\n  action :${3:install}\nend'
