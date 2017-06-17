@@ -5,6 +5,12 @@
   'apt_package':
     'prefix': 'apt_package'
     'body': 'apt_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'apt_repository':
+    'prefix': 'apt_repository'
+    'body': 'apt_repository \'${1:name}\' do\n  uri \'${2:https://example.com/deb}\'\n  components [${3:\'main\'}]\n  action :${4:add}\nend'
+  'apt_update':
+    'prefix': 'apt_update'
+    'body': 'apt_update \'${1:name}\' do\n  ignore_failure ${2:true}\n  action :${3:update}\nend'
   'aws_auto_scaling_group':
     'prefix': 'aws_auto_scaling_group'
     'body': 'aws_auto_scaling_group \'${1:name}\' do\n  availability_zones \[ \'${2:us-west-1}\' \]\n  desired_capacity ${3:2}\n  min_size ${4:1}\n  max_size ${5:3}\n  launch_configuration \'${6:ref-launch-configuration}\'\n  load_balancers \'${7:ref-load-balancer}\'\n  options subnets: \'${8:ref-subnets}\'\nend'
@@ -95,45 +101,54 @@
   'bash':
     'prefix': 'bash'
     'body': 'bash \'${1:a bash script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:wget http://www.example.com/tarball.tar.bz\n  tar -zxf tarball.tar.gz\n  cd tarball\n  ./configure\n  make\n  make install}\n  EOH\nend'
+  'batch':
+    'prefix': 'batch'
+    'body': 'batch \'${1:a batch script}\' do\n  user \'${2:Administrator}\'\n  cwd \'${3:C:\\\\temp}\'\n  code <<-EOH\n  ${4:  echo %TEMP%\n    echo %SYSTEMDRIVE%\n    echo %PATH%\n    echo %WINDIR%}\n    EOH\nend'
   'bff_package':
     'prefix': 'bff_package'
     'body': 'bff_package \'${1:name}\' do\n  action :${2:install}\nend'
   'breakpoint':
     'prefix': 'breakpoint'
     'body': 'breakpoint \'${1:name}\' do\n  action :${2:break}\nend'
+  'cab_package':
+    'prefix': 'cab_package'
+    'body': 'cab_package \'${1:name}\' do\n  source ${2:\'C:\\\\example.cab\'}\n  action :${3:install}\nend'
   'chef_gem':
     'prefix': 'chef_gem'
     'body': 'chef_gem \'${1:right_aws}\' do\n  action :${2:install}\nend'
   'chef_handler':
     'prefix': 'chef_handler'
     'body': 'chef_handler \'${1:name_of_handler}\' do\n  source \'${2:path_to_source}\'\n  action :${3:enable}\nend'
+  'chocolatey_package':
+    'prefix': 'chocolatey_package'
+    'body': 'chocolatey_package \'${1:name}\' do\n  action :${3:install}\nend'
   'cookbook_file':
     'prefix': 'cookbook_file'
-    'body': 'cookbook_file \'${1:/tmp/testfile}\' do\n  source \'${2:testfile}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode ${5:00644}\nend'
+    'body': 'cookbook_file \'${1:/tmp/testfile}\' do\n  source \'${2:testfile}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0644}\'\nend'
   'cron':
     'prefix': 'cron'
     'body': 'cron \'${1:name}\' do\n  hour \'${2:5}\'\n  minute \'${3:5}\'\n  command \'${3:/bin/script}\'\nend'
   'csh':
     'prefix': 'csh'
     'body': 'csh \'${1:a csh script}\' do\n  user \'${2:root}\'\n  cwd \'${3:/tmp}\'\n  code <<-EOH\n  ${4:foreach i ( 10 15 20 40 )\n    echo $i\n  end}\n  EOH\nend'
+  'dnf_package':
+    'prefix': 'dnf_package'
+    'body': 'dnf_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'deploy':
+    'prefix': 'deploy'
+    'body': 'deploy \'${1:/my/deploy/dir}\' do\n  repo \'${2:git@github.com/whoami/project}\'\n  user \'${3:deploy_ninja}\'\n  migrate ${4:true}\n  migration_command \'${5:rake db:migrate}\'\n  environment ${6:\'RAILS_ENV\' => \'production\', \'OTHER_ENV\' => \'foo\'}\n  action :${7:deploy}\n  scm_provider ${8:Chef::Provider::Git}\nend'
+  'directory':
+    'prefix': 'directory'
+    'body': 'directory \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode \'${4:0755}\'\n  recursive true\n  action :create\nend'
+  'dpkg_package':
+    'prefix': 'dpkg_package'
+    'body': 'dpkg_package \'${1:name}\' do\n  action :${2:install}\nend'
   'dsc_resource':
     'prefix': 'dsc_resource'
     'body': 'dsc_resource \'${1:name}\' do\n  resource :${2:archive}\n  property :${3:ensure}, \'${4:Present}\'\n  property :${5:path} \"${6:C:\\\\Users\\\\Public\\\\Documents\\\\example.zip\}"\n  property :${7:destination} \"${8:C:\\\\Users\\\\Public\\\\Documents\\\\ExtractionPath\}"\nend'
   'dsc_script':
     'prefix': 'dsc_script'
     'body': 'dsc_script \'${1:name}\' do\n  code <<-EOH\n  ${2:}\n  EOH\nend'
-  'deploy':
-    'prefix': 'deploy'
-    'body': 'deploy \'${1:/my/deploy/dir}\' do\n  repo \'${2:git@github.com/whoami/project}\'\n  user \'${3:deploy_ninja}\'\n  migrate ${4:true}\n  migration_command \'${5:rake db:migrate}\'\n  environment ${6:\'RAILS_ENV\' => \'production\', \'OTHER_ENV\' => \'foo\'}\n  action :${7:deploy}\n  scm_provider ${8:Chef::Provider::Git}\nend'
-  'directory':
-    'prefix': 'directory'
-    'body': 'directory \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode ${4:00755}\n  recursive true\n  action :create\nend'
-  'dpkg_package':
-    'prefix': 'dpkg_package'
-    'body': 'dpkg_package \'${1:name}\' do\n  action :${2:install}\nend'
-  'easy_install_package':
-    'prefix': 'easy_install_package'
-    'body': 'easy_install_package \'${1:name}\' do\n  action :${2:install}\nend'
   'env':
     'prefix': 'env'
     'body': 'env \'${1:ComSpec}\' do\n  value \'${2:C:\\\\Windows\\\\system32\\\\cmd.exe}\'\nend'
@@ -145,7 +160,7 @@
     'body': 'execute \'${1:name}\' do\n  command \'${2:command}\'\n  action :run\nend'
   'file':
     'prefix': 'file'
-    'body': 'file \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode ${4:00755}\n  action :${5:create}\nend'
+    'body': 'file \'${1:/tmp/something}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode \'${4:0755}\'\n  action :${5:create}\nend'
   'freebsd_package':
     'prefix': 'freebsd_package'
     'body': 'freebsd_package \'${1:name}\' do\n  action :${2:install}\nend'
@@ -215,6 +230,9 @@
   'mount':
     'prefix': 'mount'
     'body': 'mount \'${1:/mnt/volume1}\' do\n  device \'${2:volume1}\'\n  fstype \'${3:xfs}\'\n  action :${4:mount}\nend'
+  'msu_package':
+    'prefix': 'msu_package'
+    'body': 'msu_package \'${1:name}\' do\n  source ${2:\'C:\\\\example.msu\'}\n  action :${3:install}\nend'
   'not_if':
     'prefix': 'not_if'
     'body': 'not_if "${1}"'
@@ -259,7 +277,7 @@
     'body': 'registry_key \'${1:HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\name_of_registry_key}\' do\n  values [{:name => \'${2:NewRegistryKeyValue}\', :type => :${3:string}, :data => ${4:\'C:\\\\Windows\\\\System32\\\\file_name.bmp\'}}]\n  action :${5:create}\nend'
   'remote_directory':
     'prefix': 'remote_directory'
-    'body': 'remote_directory \'${1:/foo/bar/baz}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode ${3:00755}\n  action :${4:create}\nend'
+    'body': 'remote_directory \'${1:/foo/bar/baz}\' do\n  owner \'${2:root}\'\n  group \'${3:root}\'\n  mode \'${3:0755}\'\n  action :${4:create}\nend'
   'remote_file':
     'prefix': 'remote_file'
     'body': 'remote_file \'${1:/opt/chef/file}\' do\n  source \'${2:http://myfile}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  checksum \'${5:abc123}\'\nend'
@@ -283,7 +301,7 @@
     'body': 'script \'${1:desc}\' do\n  interpreter \'${2:bash}\'\n  user \'${3:root}\'\n  cwd \'${4:/tmp}\'\n  code <<-EOF\n\t${5:script commands}\n  EOF\nend'
   'service':
     'prefix': 'service'
-    'body': 'service \'${1:service}\' do\n  supports :${2:status} => true\n  action [ :${3:enable}, :${3:start} ]\nend'
+    'body': 'service \'${1:service}\' do\n  supports ${2:status}: true\n  action [:${3:enable}, :${3:start}]\nend'
   'smartos_package':
     'prefix': 'smartos_package'
     'body': 'smartos_package \'${1:name}\' do\n  action :${2:install}\nend'
@@ -292,19 +310,19 @@
     'body': 'solaris_package \'${1:name}\' do\n  action :${2:install}\nend'
   'subscribes':
     'prefix': 'subscribes'
-    'body': 'subscribes :${1:restart}, "${2:template}[${3:name}]"'
+    'body': 'subscribes :${1:restart}, \'${2:template}[${3:name}]\''
   'subversion':
     'prefix': 'subversion'
     'body': 'subversion \'${1:CouchDB Edge}\' do\n  repository \'${2:http://svn.apache.org/repos/asf/couchdb/trunk}\'\n  revision \'${3:HEAD}\'\n  destination \'${4:/opt/mysources/couch}\'\n  action :${5:sync}\nend'
   'supports':
     'prefix': 'supports'
-    'body': 'supports :status => :${1:true}, :restart => :${2:true}, :reload => :${3:true}'
+    'body': 'supports status: ${1:true}, restart: ${2:true}, reload: ${3:true}'
   'template':
     'prefix': 'template'
-    'body': 'template \'${1:/tmp/config.conf}\' do\n  source \'${2:config.conf.erb}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode ${5:00744}\nend'
+    'body': 'template \'${1:/tmp/config.conf}\' do\n  source \'${2:config.conf.erb}\'\n  owner \'${3:root}\'\n  group \'${4:root}\'\n  mode \'${5:0744}\'\nend'
   'templatev':
     'prefix': 'templatev'
-    'body': 'template "${1:name}" do\n source "${2:source}.erb"\n  owner "root"\n  group "root"\n  node "0644"\n   variables( ${3::config_var => node[:configs][:config_var]}  )\nend'
+    'body': 'template \'${1:name}\' do\n  source \'${2:source}.erb\'\n  owner \'root\'\n  group \'root\'\n  node \'0644\'\n  variables(${3:config_var: node[:configs][:config_var]} )\nend'
   'user':
     'prefix': 'user'
     'body': 'user \'${1:random}\' do\n  comment \'${2:Random User}\'\n  uid \'${3:1000}\'\n  gid \'${4:users}\'\n  shell \'${5:/bin/zsh}\'\nend'
@@ -317,3 +335,6 @@
   'yum_package':
     'prefix': 'yum_package'
     'body': 'yum_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'zypper_package':
+    'prefix': 'zypper_package'
+    'body': 'zypper_package \'${1:name}\' do\n  action :${3:install}\nend'
