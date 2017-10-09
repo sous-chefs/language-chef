@@ -251,6 +251,9 @@
   'openbsd_package':
     'prefix': 'openbsd_package'
     'body': 'openbsd_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'osx_profile':
+    'prefix': 'osx_profile'
+    'body': 'osx_profile \'${1:name}\' do\n  profile \'${2:com.foo.bar}\'\n  action :${3:install}\nend'
   'package':
     'prefix': 'package'
     'body': 'package \'${1:name}\' do\n  action :${2:install}\nend'
@@ -269,6 +272,9 @@
   'portage_package':
     'prefix': 'portage_package'
     'body': 'portage_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'powershell_package':
+    'prefix': 'powershell_package'
+    'body': 'powershell_package \'${1:name}\' do\n  action :${2:install}\nend'
   'powershell_script':
     'prefix': 'powershell_script'
     'body': 'powershell_script \'${1:cwd-to-win-env-var}\' do\n  cwd \'${2:%TEMP%}\'\n  code <<-EOH\n  ${3:$stream = [System.IO.StreamWriter] \"./temp-write-from-chef.txt\"\n  $stream.WriteLine(\"chef on windows rox yo!\")\n  $stream.close()}\n  EOH\nend'
@@ -320,6 +326,9 @@
   'subversion':
     'prefix': 'subversion'
     'body': 'subversion \'${1:CouchDB Edge}\' do\n  repository \'${2:http://svn.apache.org/repos/asf/couchdb/trunk}\'\n  revision \'${3:HEAD}\'\n  destination \'${4:/opt/mysources/couch}\'\n  action :${5:sync}\nend'
+  'systemd_unit':
+    'prefix': 'systemd_unit'
+    'body': 'systemd_unit \'${1:name}\' do\n  content ${2:\{\}}\n  action :${3:create}\nend'
   'supports':
     'prefix': 'supports'
     'body': 'supports status: ${1:true}, restart: ${2:true}, reload: ${3:true}'
