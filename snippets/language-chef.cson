@@ -344,9 +344,15 @@
   'windows_package':
     'prefix': 'windows_package'
     'body': 'windows_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'windows_path':
+    'prefix': 'windows_path'
+    'body': 'windows_path \'${1:name}\' do\n  action :${2:add}\nend'
   'windows_service':
     'prefix': 'windows_service'
     'body': 'windows_service \'${1:BITS}\' do\n  action :${2:configure_startup}\n  startup_type :${3:manual}\nend'
+  'windows_task':
+    'prefix': 'windows_task'
+    'body': 'windows_task \'${1:name}\' do\n  user \'${2:Administrator}\'\n  password \'${3:P@ssw0rd}\'\n  command \'${4:example.exe}\'\n  frequency :${5:daily}\n  day \'${6:Mon}\'\n  action :${7:create}\nend'
   'yum_package':
     'prefix': 'yum_package'
     'body': 'yum_package \'${1:name}\' do\n  action :${2:install}\nend'
