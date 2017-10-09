@@ -5,6 +5,9 @@
   'apt_package':
     'prefix': 'apt_package'
     'body': 'apt_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'apt_preference':
+    'prefix': 'apt_preference'
+    'body': 'apt_preference \'${1:name}\' do\n  action :${3:add}\nend'
   'apt_repository':
     'prefix': 'apt_repository'
     'body': 'apt_repository \'${1:name}\' do\n  uri \'${2:https://example.com/deb}\'\n  components [${3:\'main\'}]\n  action :${4:add}\nend'
@@ -191,6 +194,9 @@
   'ips_package':
     'prefix': 'ips_package'
     'body': 'ips_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'launchd':
+    'prefix': 'launchd'
+    'body': 'launchd \'${1:name}\' do\n  action :${2:create}\nend'
   'link':
     'prefix': 'link'
     'body': 'link \'${1:/tmp/passwd}\' do\n  to \'${2:/etc/passwd}\'\nend'
@@ -338,3 +344,6 @@
   'zypper_package':
     'prefix': 'zypper_package'
     'body': 'zypper_package \'${1:name}\' do\n  action :${3:install}\nend'
+  'zypper_repository':
+    'prefix': 'zypper_repository'
+    'body': 'zypper_repository \'${1:name}\' do\n  action :${3:add}\nend'
