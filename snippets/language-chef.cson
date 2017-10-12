@@ -5,6 +5,9 @@
   'apt_package':
     'prefix': 'apt_package'
     'body': 'apt_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'apt_preference':
+    'prefix': 'apt_preference'
+    'body': 'apt_preference \'${1:name}\' do\n  action :${3:add}\nend'
   'apt_repository':
     'prefix': 'apt_repository'
     'body': 'apt_repository \'${1:name}\' do\n  uri \'${2:https://example.com/deb}\'\n  components [${3:\'main\'}]\n  action :${4:add}\nend'
@@ -191,6 +194,9 @@
   'ips_package':
     'prefix': 'ips_package'
     'body': 'ips_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'launchd':
+    'prefix': 'launchd'
+    'body': 'launchd \'${1:name}\' do\n  action :${2:create}\nend'
   'link':
     'prefix': 'link'
     'body': 'link \'${1:/tmp/passwd}\' do\n  to \'${2:/etc/passwd}\'\nend'
@@ -245,6 +251,9 @@
   'openbsd_package':
     'prefix': 'openbsd_package'
     'body': 'openbsd_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'osx_profile':
+    'prefix': 'osx_profile'
+    'body': 'osx_profile \'${1:name}\' do\n  profile \'${2:com.foo.bar}\'\n  action :${3:install}\nend'
   'package':
     'prefix': 'package'
     'body': 'package \'${1:name}\' do\n  action :${2:install}\nend'
@@ -263,6 +272,9 @@
   'portage_package':
     'prefix': 'portage_package'
     'body': 'portage_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'powershell_package':
+    'prefix': 'powershell_package'
+    'body': 'powershell_package \'${1:name}\' do\n  action :${2:install}\nend'
   'powershell_script':
     'prefix': 'powershell_script'
     'body': 'powershell_script \'${1:cwd-to-win-env-var}\' do\n  cwd \'${2:%TEMP%}\'\n  code <<-EOH\n  ${3:$stream = [System.IO.StreamWriter] \"./temp-write-from-chef.txt\"\n  $stream.WriteLine(\"chef on windows rox yo!\")\n  $stream.close()}\n  EOH\nend'
@@ -314,6 +326,9 @@
   'subversion':
     'prefix': 'subversion'
     'body': 'subversion \'${1:CouchDB Edge}\' do\n  repository \'${2:http://svn.apache.org/repos/asf/couchdb/trunk}\'\n  revision \'${3:HEAD}\'\n  destination \'${4:/opt/mysources/couch}\'\n  action :${5:sync}\nend'
+  'systemd_unit':
+    'prefix': 'systemd_unit'
+    'body': 'systemd_unit \'${1:name}\' do\n  content ${2:\{\}}\n  action :${3:create}\nend'
   'supports':
     'prefix': 'supports'
     'body': 'supports status: ${1:true}, restart: ${2:true}, reload: ${3:true}'
@@ -329,12 +344,21 @@
   'windows_package':
     'prefix': 'windows_package'
     'body': 'windows_package \'${1:name}\' do\n  action :${2:install}\nend'
+  'windows_path':
+    'prefix': 'windows_path'
+    'body': 'windows_path \'${1:name}\' do\n  action :${2:add}\nend'
   'windows_service':
     'prefix': 'windows_service'
     'body': 'windows_service \'${1:BITS}\' do\n  action :${2:configure_startup}\n  startup_type :${3:manual}\nend'
+  'windows_task':
+    'prefix': 'windows_task'
+    'body': 'windows_task \'${1:name}\' do\n  user \'${2:Administrator}\'\n  password \'${3:P@ssw0rd}\'\n  command \'${4:example.exe}\'\n  frequency :${5:daily}\n  day \'${6:Mon}\'\n  action :${7:create}\nend'
   'yum_package':
     'prefix': 'yum_package'
     'body': 'yum_package \'${1:name}\' do\n  action :${2:install}\nend'
   'zypper_package':
     'prefix': 'zypper_package'
     'body': 'zypper_package \'${1:name}\' do\n  action :${3:install}\nend'
+  'zypper_repository':
+    'prefix': 'zypper_repository'
+    'body': 'zypper_repository \'${1:name}\' do\n  action :${3:add}\nend'
