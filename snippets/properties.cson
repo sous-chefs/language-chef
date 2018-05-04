@@ -1,0 +1,61 @@
+'.source.chef.recipes':
+  'action default properties':
+    'prefix': 'action default properties'
+    'body': 'action :${1:nothing}'
+  'action enabling properties':
+    'prefix': 'action enabling properties'
+    'body': 'action [ :${1:enable}, :${2:start} ]'
+  'group properties':
+    'prefix': 'group properties'
+    'body': 'group \'${1:group}\''
+  'user properties':
+    'prefix': 'user properties'
+    'body': 'user \'${1:user}\''
+  'mode properties':
+    'prefix': 'mode properties'
+    'body': 'mode \'${1:0755}\''
+  'not_if properties':
+    'prefix': 'not_if properties'
+    'body': 'not_if "${1}"'
+  'only_if properties':
+    'prefix': 'only_if properties'
+    'body': 'only_if "${1}"'
+  'provider properties':
+    'prefix': 'provider properties'
+    'body': 'provider Chef::Provider::${1:Package::Rubygems}\n'
+  'retries properties':
+    'prefix': 'retries properties'
+    'body': 'retries ${1:1}\nretry_delay ${2:2}'
+  'cwd properties':
+    'prefix': 'cwd properties'
+    'body': 'cwd \'${1:/myapp}\''
+  'command properties':
+    'prefix': 'command properties'
+    'body': 'command \'${1:echo $PWD}\''
+  'environment properties':
+    'prefix': 'environment properties'
+    'body': 'environment \'${1:JAVA_HOME}\' => \'${2:/usr/lib/java/jdk1.7/home}\''
+  'guard_interpreter properties':
+    'prefix': 'guard_interpreter properties'
+    'body': 'guard_interpreter :${1:bash}'
+  'path properties':
+    'prefix': 'path properties'
+    'body': 'path \'${1:/foo/bar}\''
+  'notifies properties':
+    'prefix': 'notifies properties'
+    'body': 'notifies :${1:run}, \'${2:service}[${3:test-nagios-config}]\', :${4:delayed}'
+  'source properties':
+    'prefix': 'source properties'
+    'body': 'source \'${1:foobar.erb}\''
+  'message properties':
+    'prefix': 'message properties'
+    'body': 'message \'${1:Just a message}\''
+  'url properties':
+    'prefix': 'url properties'
+    'body': 'url \'${1:https://github.com/pschaumburg/language-chef}\''
+  'subscribes properties':
+    'prefix': 'subscribes properties'
+    'body': 'subscribes :${1:restart}, \'${2:resource}[${3:name}]\', :${4:timer}'
+  'recursive properties':
+    'prefix': 'recursive properties'
+    'body': 'recursive ${1:true}'

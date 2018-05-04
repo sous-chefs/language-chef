@@ -1,0 +1,18 @@
+'scopeName': 'source.chef.recipes'
+'name': 'Chef Recipes'
+'fileTypes': [
+  'rb'
+]
+'patterns': [
+  {
+   'name': 'keyword.recipe.chef'
+   'match': '^.*\/recipes\/.*'
+  }
+  {
+   'name': 'keyword.attributes.chef'
+   'match': '^.*\/attributes\/.*'
+  }
+  {
+   'include': 'source.ruby'
+  }
+]
