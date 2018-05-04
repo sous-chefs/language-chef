@@ -13,7 +13,7 @@
     "snippets",
     "chef-client"
   ],
-  "repository": "https://github.com/sous-chef/language-chef",
+  "repository": "https://github.com/sous-chefs/language-chef",
   "license": "Apache2.0",
   "engines": {
     "atom": ">=1.0.0"
