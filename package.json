@@ -1,12 +1,26 @@
 {
   "name": "language-chef",
-  "version": "0.11.0",
-  "private": true,
-  "description": "Atom support for Chef.",
-  "repository": "https://github.com/darron/language-chef",
-  "license": "MIT",
+  "version": "2.0.0",
+  "description": "Chef language support based on chef-client 13 + 14",
+  "keywords": [
+    "language",
+    "grammar",
+    "ruby",
+    "chef",
+    "cookbook",
+    "resource",
+    "syntax",
+    "snippets",
+    "chef-client"
+  ],
+  "repository": "https://github.com/sous-chef/language-chef",
+  "license": "Apache2.0",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=1.0.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "readme": "# Language - Chef\n\nChef resources snippet and grammar support",
+  "readmeFilename": "README.md"
 }

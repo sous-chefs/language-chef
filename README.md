@@ -1,21 +1,46 @@
-# language-chef package
+# Language - Chef
 
-Chef support for [Atom](http://atom.io).
+Integration of all [Chef](https://docs.chef.io/resource.html) resources and properties.
+Integration for [Atom](https://atom.io/packages/)
 
-Converted from [Dr. Nic's TextMate bundle](https://github.com/drnic/Chef.tmbundle).
+## Supporting
 
-Snippets extends from [vim-chef](https://github.com/vadv/vim-chef)
+- metadata.rb resources
+- recipes resource
+- dsl helpers like chef cache path and platform?
 
-## Install
+Based on chef-client Version **14.0.202**
 
-Go to `Atom > Preferences...` then search for **language-chef** in Packages tab.
+Removed resources can be found in REMOVED.md
 
-## Development
+## Installation
 
-```sh
-$ cd ~/.atom/packages
-$ git clone https://github.com/darron/language-chef
-$ cd language-chef
-$ apm install
-$ apm link
 ```
+apm install language-chef
+```
+
+Alternatively, open `Settings/Preferences -> Install` and search for `language-new-chef`.
+
+## Issues
+
+Create an issue within this GitHub Repository
+
+## Contributing
+
+1. Fork the repository on Github
+2. Create a named feature branch (i.e. `add-new-resource`)
+3. Write your change
+4. Submit a Pull Request
+
+## Author
+
+Author:: Darron Froese (<darron@froese.org>)
+Author:: Patrick Schaumburg (<info@p-schaumburg.de>)
+
+## Contributors
+
+* Tim Smith (<tsmith@chef.io>)
+
+## License
+
+Apache 2.0
