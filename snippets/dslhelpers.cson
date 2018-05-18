@@ -1,25 +1,25 @@
 '.source.chef.recipes':
-  'Chef cache path':
-    'prefix': 'cache dslhelper'
+  'DSL Helper - Chef cache path':
+    'prefix': 'cache'
     'body': '\#{Chef::Config[\'file_cache_path\']}'
-  'File exists':
-    'prefix': 'File.exist? dslhelper'
+  'DSL Helper - file':
+    'prefix': 'File.exist?'
     'body': '{ ::File.exist?(\'${1:/var/www/html/index.html}\') }'
-  'include_recipe':
-    'prefix': 'include_recipe dslhelper'
+  'DSL Helper - include_recipe':
+    'prefix': 'include_recipe'
     'body': 'include_recipe \'${1:example::recipe}\''
-  'platform_family?':
-    'prefix': 'platform_family? dslhelper'
+  'DSL Helper - platform_family?':
+    'prefix': 'platform_family?'
     'body': 'platform_family?(\'${1:debian}\')'
-  'platform?':
-     'prefix': 'platform? dslhelper'
+  'DSL Helper - platform?':
+     'prefix': 'platform?'
      'body': 'platform?(\'${1:ubuntu}\')'
-  'reboot_pending?':
-     'prefix': 'reboot_pending? dslhelper'
+  'DSL Helper - reboot_pending?':
+     'prefix': 'reboot_pending?'
      'body': 'reboot_pending?'
-  'cookbook_name':
-     'prefix': 'cookbook_name dslhelper'
+  'DSL Helper - cookbook_name':
+     'prefix': 'cookbook_name'
      'body': 'cookbook_name'
-  'recipe_name':
-     'prefix': 'recipe_name dslhelper'
+  'DSL Helper - recipe_name':
+     'prefix': 'recipe_name'
      'body': 'recipe_name'
