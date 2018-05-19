@@ -25,11 +25,6 @@ notifications:
     on_success: never
     on_failure: change
 
-branches:
-  only:
-    - master
-    - development
-
 git:
   depth: 10
 
