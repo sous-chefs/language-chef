@@ -1,3 +1,7 @@
+## 3.2.1
+
+* removed dependeny to language-inspec as it's not working
+
 ## 3.2.0
 
 * adding dependency for language-inspec
