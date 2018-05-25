@@ -1,3 +1,8 @@
+## 3.1.0
+
+* added descriptions to all resources
+* added links to all resources
+
 ## 3.0.1
 
 * fix missing picture

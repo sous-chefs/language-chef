@@ -4,8 +4,8 @@
 		"displaytext": "apt_package",
 		"package": "Recipe",
 		"snippet": "apt_package '${1:name}' do\n  action :${2:install}\n  source '${3:/path/to/file.deb}'\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the apt_package resource to manage packages on Debian and Ubuntu platforms.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_apt_package.html"
 	},
 	{
 		"type": "Resource",
@@ -13,120 +13,120 @@
 		"package": "Recipe",
 		"since": "13.3",
 		"snippet": "apt_preference '${1:name}' do\n  pin '${2:version 5.1.49-3}'\n  action :${3:add}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "The apt_preference resource allows for the creation of APT preference files. Preference files are used to control which package versions and sources are prioritized during installation.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_apt_preference.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "apt_repository",
 		"package": "Recipe",
 		"snippet": "apt_repository '${1:nginx}' do\n  uri '${2:http://nginx.org/packages/ubuntu/}'\n  components [${3:'nginx'}]\n  action :${4:add}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the apt_repository resource to specify additional APT repositories. Adding a new repository will update APT package cache immediately.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_apt_repository.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "apt_update",
 		"package": "Recipe",
 		"snippet": "apt_update '${1:name}' do\n  frequency ${2:86400}\n  action :${3:periodic}\nend",
-		"description": "```reboot_pending```\n\nIs a reboot pending?",
-		"descriptionMoreURL": ""
+		"description": "Use the apt_update resource to manage APT repository updates on Debian and Ubuntu platforms.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_apt_update.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "bash",
 		"package": "Recipe",
 		"snippet": "bash '${1:a bash script}' do\n  user '${2:root}'\n  cwd '${3:/tmp}'\n  code <<-EOH\n  ${4:wget http://www.example.com/tarball.tar.bz\n  tar -zxf tarball.tar.gz\n  cd tarball\n  ./configure\n  make\n  make install}\n  EOH\n  action :${4:run}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the bash resource to execute scripts using the Bash interpreter. This resource may also use any of the actions and properties that are available to the execute resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use not_if and only_if to guard this resource for idempotence.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_bash.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "batch",
 		"package": "Recipe",
 		"snippet": "batch '${1:a batch script}' do\n  user '${2:Administrator}'\n  cwd '${3:C:\\\\temp}'\n  code <<-EOH\n  ${4:  7z.exe x C:\\\\temp\\ruby-1.8.7-p352-i386-mingw32.7z\n    -oC:\\source -r -y\n    xcopy C:\\source\\ruby-1.8.7-p352-i386-mingw32 C:\\ruby /e /y}\n    EOH\n  action :${3:run}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the batch resource to execute a batch script using the cmd.exe interpreter on Windows. The batch resource creates and executes a temporary file (similar to how the script resource behaves), rather than running the command inline. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use not_if and only_if to guard this resource for idempotence.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_batch.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "bff_package",
 		"package": "Recipe",
 		"snippet": "bff_package '${1:name}' do\n  source '${2:/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0}'\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the bff_package resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the remote_file or cookbook_file resources.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_bff_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "breakpoint",
 		"package": "Recipe",
 		"snippet": "breakpoint '${1:name}' do\n  action :${2:break}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the breakpoint resource to add breakpoints to recipes. Run the chef-shell in chef-client mode, and then use those breakpoints to debug recipes. Breakpoints are ignored by the chef-client during an actual chef-client run. That said, breakpoints are typically used to debug recipes only when running them in a non-production environment, after which they are removed from those recipes before the parent cookbook is uploaded to the Chef server.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_breakpoint.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "cab_package",
 		"package": "Recipe",
 		"snippet": "cab_package '${1:name}' do\n  source '${2:C:\\\\example.cab}'\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the cab_package resource to install or remove Microsoft Windows cabinet (.cab) packages.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_cab_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "chef_gem",
 		"package": "Recipe",
 		"snippet": "chef_gem '${1:name}' do\n  compile_time ${2:false} \n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the chef_gem resource to install a gem only for the instance of Ruby that is dedicated to the chef-client. When a gem is installed from a local file, it must be added to the node using the remote_file or cookbook_file resources.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_chef_gem.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "chef_handler",
 		"package": "Recipe",
 		"snippet": "chef_handler '${1:name_of_handler}' do\n  source '${2:path to source}'\n  arguments [${3:argument1, argument2}]\n  action :${4:enable}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the chef_handler resource to enable handlers during a chef-client run. The resource allows arguments to be passed to the chef-client, which then applies the conditions defined by the custom handler to the node attribute data collected during the chef-client run, and then processes the handler based on that data.\n\nThe chef_handler resource is typically defined early in a node’s run-list (often being the first item). This ensures that all of the handlers will be available for the entire chef-client run.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_chef_handler.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "chocolatey_package",
 		"package": "Recipe",
 		"snippet": "chocolatey_package '${1:name}' do\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the chocolatey_package resource to manage packages using Chocolatey on the Microsoft Windows platform.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_chocolatey_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "cookbook_file",
 		"package": "Recipe",
 		"snippet": "cookbook_file '${1:/tmp/filename.md}' do\n  source '${2:filename.md}'\n  owner '${3:root}'\n  group '${4:root}'\n  mode '${5:0644}'\n  action :${6:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the cookbook_file resource to transfer files from a sub-directory of COOKBOOK_NAME/files/ to a specified path located on a host that is running the chef-client. The file is selected according to file specificity, which allows different source files to be used based on the hostname, host platform (operating system, distro, or as appropriate), or platform version. Files that are located in the COOKBOOK_NAME/files/default sub-directory may be used on any platform.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_cookbook_file.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "cron",
 		"package": "Recipe",
 		"snippet": "cron '${1:name}' do\n  hour '${2:5}'\n  minute '${3:5}'\n  command '${4:/bin/true}'\n  action :${5:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the cron resource to manage cron entries for time-based job scheduling. Properties for a schedule will default to * if not provided. The cron resource requires access to a crontab program, typically cron.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_cron.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "csh",
 		"package": "Recipe",
 		"snippet": "csh '${1:a csh script}' do\n  user '${2:root}'\n  cwd '${3:/tmp}'\n  code <<-EOH\n  ${4:foreach i ( 10 15 20 40 )\n    echo $i\n  end}\n  EOH\n  action :${5:run}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the csh resource to execute scripts using the csh interpreter. This resource may also use any of the actions and properties that are available to the execute resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use not_if and only_if to guard this resource for idempotence.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_csh.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "directory",
 		"package": "Recipe",
 		"snippet": "directory '${1:/tmp/something}' do\n  owner '${2:root}'\n  group '${3:root}'\n  mode '${4:0755}'\n  recursive ${5:true}\n  action :${6:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the directory resource to manage a directory, which is a hierarchy of folders that comprises all of the information stored on a computer. The root directory is the top-level, under which the rest of the directory is organized. The directory resource uses the name property to specify the path to a location in a directory. Typically, permission to access that location in the directory is required.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_directory.html"
 	},
 	{
 		"type": "Resource",
@@ -134,88 +134,88 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "dmg_package '${1:name}' do\n  source '${2:https://packages.chef.io/files/stable/chefdk/2.5.3/mac_os_x/10.13/chefdk-2.5.3-1.dmg}'\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the dmg_package resource to install a package from a .dmg file. The resource will retrieve the file from a remote URL, mount it using OS X’s hdidutil, copy the application to the specified destination (/Applications), and detach the image using hdiutil. The .dmg file will be stored in the Chef::Config[:file_cache_path].",
+		"descriptionMoreURL": "https://docs.chef.io/resource_dmg_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "dnf_package",
 		"package": "Recipe",
 		"snippet": "dnf_package '${1:only-in-custom-repo}' do\n  action :${2:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the dnf_package resource to install, upgrade, and remove packages with DNF for Fedora platforms. The dnf_package resource is able to resolve provides data for packages much like DNF can do when it is run from the command line. This allows a variety of options for installing packages, like minimum versions, virtual provides, and library names.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_dnf_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "dpkg_package",
 		"package": "Recipe",
 		"snippet": "dpkg_package '${1:name}' do\n  source '${2:/foo/bar/wget_1.13.4-2ubuntu1.4_amd64.deb}'\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the dpkg_package resource to manage packages for the dpkg platform. When a package is installed from a local file, it must be added to the node using the remote_file or cookbook_file resources.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_dpkg_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "dsc_resource",
 		"package": "Recipe",
 		"snippet": "dsc_resource '${1:name}' do\n  resource :${2:archive}\n  property :${3:ensure}, '${4:Present}'\n  property :${5:path} \"${6:C:\\\\Users\\\\Public\\\\Documents\\\\example.zip}\"\n  property :${7:destination} \"${8:C:\\\\Users\\\\Public\\\\Documents\\\\ExtractionPath}\"\n  action :${9:nothing}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Desired State Configuration (DSC) is a feature of Windows PowerShell that provides a set of language extensions, cmdlets, and resources that can be used to declaratively configure software. DSC is similar to Chef, in that both tools are idempotent, take similar approaches to the concept of resources, describe the configuration of a system, and then take the steps required to do that configuration. The most important difference between Chef and DSC is that Chef uses Ruby and DSC is exposed as configuration data from within Windows PowerShell.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_dsc_resource.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "dsc_script",
 		"package": "Recipe",
 		"snippet": "dsc_script '${1:name}' do\n  code <<-EOH\n  ${2:}\n  EOH\n  action :${3:run}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "A dsc_script resource block embeds the code that defines a DSC configuration directly within a Chef recipe:",
+		"descriptionMoreURL": "https://docs.chef.io/resource_dsc_script.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "execute",
 		"package": "Recipe",
 		"snippet": "execute '${1:name}' do\n  command '${2:command}'\n  action :${3:run}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the execute resource to execute a single command. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use not_if and only_if to guard this resource for idempotence.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_execute.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "file",
 		"package": "Recipe",
 		"snippet": "file '${1:/tmp/something}' do\n  content '${2:This is a placeholder}'\n  owner '${3:root}'\n  group '${4:root}'\n  mode '${5:0755}'\n  action :${6:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the file resource to manage files directly on a node.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_file.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "freebsd_package",
 		"package": "Recipe",
 		"snippet": "freebsd_package '${1:name}' do\n  action :${2:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the freebsd_package resource to manage packages for the FreeBSD platform.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_freebsd_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "gem_package",
 		"package": "Recipe",
 		"snippet": "gem_package '${1:gem}' do\n  gem_binary '${2:/opt/chef/embedded/bin/gem}'\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the gem_package resource to manage gem packages that are only included in recipes. When a package is installed from a local file, it must be added to the node using the remote_file or cookbook_file resources.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_gem_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "git",
 		"package": "Recipe",
 		"snippet": "git '${1:/tmp/app_name}' do\n  repository '${2:git@github.com/whoami/project}'\n  reference '${3:master}'\n  action :${4:sync}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the git resource to manage source control resources that exist in a git repository. git version 1.6.5 (or higher) is required to use all of the functionality in the git resource.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_git.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "group",
 		"package": "Recipe",
 		"snippet": "group '${1:www-data}' do\n  members ['${2:maintenance}', '${3:clicron}']\n  append ${4:false}\n  action :${5:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the group resource to manage a local group.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_group.html"
 	},
 	{
 		"type": "Resource",
@@ -223,16 +223,16 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "homebrew_cask '${1:name}' do\n  action :${2:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the homebrew_cask resource to install binaries distributed via the Homebrew package manager.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_homebrew_cask.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "homebrew_package",
 		"package": "Recipe",
 		"snippet": "homebrew_package '${1:name}' do\n  action :${2:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the homebrew_package resource to manage packages for the macOS platform.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_homebrew_package.html"
 	},
 	{
 		"type": "Resource",
@@ -240,8 +240,8 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "homebrew_tap '${1:name}' do\n  action :${2:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the homebrew_tap resource to add formula repositories to the Homebrew package manager.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_homebrew_tap.html"
 	},
 	{
 		"type": "Resource",
@@ -249,64 +249,65 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "hostname '${1:name}' do\n  action :${2:set}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "The hostname resource sets the system’s hostname and hosts configuration, ensures that the hostname persists after a reboot, and then re-run the Ohai plugin so the hostname will be available in subsequent cookbooks.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_hostname.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "http_request",
 		"package": "Recipe",
 		"snippet": "http_request '${1:some_message}' do\n  url '${2:http://example.com/check_in}'\n  message ${3:{:some => 'data'}.to_json}\n  action :${5:post}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the http_request resource to send an HTTP request (GET, PUT, POST, DELETE, HEAD, or OPTIONS) with an arbitrary message. This resource is often useful when custom callbacks are necessary.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_http_request.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "ifconfig",
 		"package": "Recipe",
 		"snippet": "ifconfig '${1:192.168.0.1}' do\n  device '${2:eth1}'\n  action :${3:add}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the ifconfig resource to manage interfaces on *nix systems.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_ifconfig.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "ips_package",
 		"package": "Recipe",
 		"snippet": "ips_package '${1:name}' do\n  action :${2:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the ips_package resource to manage packages (using Image Packaging System (IPS)) on the Solaris 11 platform.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_ips_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "ksh",
 		"package": "Recipe",
+		"since": "12.6",
 		"snippet": "ksh '${1:name}' do\n  code <<-EOH\n  ${2:code}\n  EOH\n  action :${3:run}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the ksh resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the execute resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use not_if and only_if to guard this resource for idempotence.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_ksh.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "launchd",
 		"package": "Recipe",
 		"snippet": "launchd '${1:com.chef.every15}' do\n  source '${2:com.chef.every15.plist}'\n  action :${3:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the launchd resource to manage system-wide services (daemons) and per-user services (agents) on the macOS platform.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_launchd.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "link",
 		"package": "Recipe",
 		"snippet": "link '${1:/tmp/passwd}' do\n  to '${2:/etc/passwd}'\n  action :${3:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the link resource to create symbolic or hard links.\n\nA symbolic link—sometimes referred to as a soft link—is a directory entry that associates a file name with a string that contains an absolute or relative path to a file on any file system. In other words, “a file that contains a path that points to another file.” A symbolic link creates a new file with a new inode that points to the inode location of the original file.\n\nA hard link is a directory entry that associates a file with another file in the same file system. In other words, “multiple directory entries to the same file.” A hard link creates a new file that points to the same inode as the original file.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_link.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "log",
 		"package": "Recipe",
 		"snippet": "log '${1:name}' do\n  message '${2:This is the message that will be added to the log.}'\n  action :${3:write}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the log resource to create log entries. The log resource behaves like any other resource: built into the resource collection during the compile phase, and then run during the execution phase. (To create a log entry that is not built into the resource collection, use Chef::Log instead of the log resource.)",
+		"descriptionMoreURL": "https://docs.chef.io/resource_log.html"
 	},
 	{
 		"type": "Resource",
@@ -314,40 +315,41 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "macos_userdefaults '${1:name}' do\n  domain '${2:AppleKeyboardUIMode}'\n  global ${3:true}\n  value '${4:2}'\n  action :${5:write}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the macos_userdefaults resource to manage the macOS user defaults system. The properties of the resource are passed to the defaults command, and the parameters follow the conventions of that command. See the defaults man page for additional information.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_macos_userdefaults.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "macports_package",
 		"package": "Recipe",
 		"snippet": "macports_package '${1:name}' do\n  action :${2:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the macports_package resource to manage packages for the macOS platform.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_macports_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "mdadm",
 		"package": "Recipe",
 		"snippet": "mdadm '${1:/dev/md0}' do\n  devices [ ${2:'/dev/sda', '/dev/sdb'} ]\n  level ${3:0}\n  action :${4:create} ]\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the mdadm resource to manage RAID devices in a Linux environment using the mdadm utility. The mdadm resource will create and assemble an array, but it will not create the config file that is used to persist the array upon reboot. If the config file is required, it must be done by specifying a template with the correct array layout, and then by using the mount resource to create a file systems table (fstab) entry.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_mdadm.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "mount",
 		"package": "Recipe",
 		"snippet": "mount '${1:/mnt/volume1}' do\n  device '${2:volume1}'\n  device_type :${3:label}\n  fstype '${4:xfs}'\n  options '${5:rw}'\n  action :${6:mount}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the mount resource to manage a mounted file system.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_mount.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "msu_package",
 		"package": "Recipe",
+		"since": "12.17",
 		"snippet": "msu_package '${1:name}' do\n  source '${2:C:\\\\example.msu}'\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the msu_package resource to install Microsoft Update(MSU) packages on Microsoft Windows machines.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_msu_package.html"
 	},
 	{
 		"type": "Resource",
@@ -355,24 +357,25 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "ohai_hint '${1:name}' do\n  hint_name '${2:custom}'\n  content '${3:test_content}'\n  action :${4:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the ohai_hint resource to aid in configuration detection by passing hint data to Ohai.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_ohai_hint.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "ohai",
 		"package": "Recipe",
 		"snippet": "ohai '${1:reload_passwd}' do\n  plugin '${2:etc}'\n  action :${3:reload}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the ohai resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during the chef-client run.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_ohai.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "openbsd_package",
 		"package": "Recipe",
+		"since": "12.1",
 		"snippet": "openbsd_package '${1:name}' do\n  action :${2:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the openbsd_package resource to manage packages for the OpenBSD platform.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_openbsd_package.html"
 	},
 	{
 		"type": "Resource",
@@ -380,8 +383,8 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "openssl_dhparam '${1:/etc/httpd/ssl/dhparam.pem}' do\n  key_length ${2:4096}\n  action :${3:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the openssl_dhparam resource to generate dhparam.pem files. If a valid dhparam.pem file is found at the specified location, no new file will be created. If a file is found at the specified location, but it is not a valid dhparam file, it will be overwritten.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_openssl_dhparam.html"
 	},
 	{
 		"type": "Resource",
@@ -389,8 +392,8 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "openssl_rsa_private_key_file '${1:name}' do\n  action :${2:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the openssl_rsa_private_key resource to generate RSA private key files. If a valid RSA key file can be opened at the specified location, no new file will be created. If the RSA key file cannot be opened or does not exist, it will be overwritten.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_openssl_rsa_private_key.html"
 	},
 	{
 		"type": "Resource",
@@ -398,112 +401,115 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "openssl_rsa_public_key '${1:/etc/example/key.pub}' do\n  private_key_path '${2:/etc/example/key.pem}'\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the openssl_rsa_public_key resource to generate RSA public key files for a given RSA private key.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_openssl_rsa_public_key.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "osx_profile",
 		"package": "Recipe",
+		"since": "12.7",
 		"snippet": "osx_profile '${1:name}' do\n  profile '${2:screensaver/com.company.screensaver.mobileconfig}'\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the osx_profile resource to manage configuration profiles (.mobileconfig files) on the macOS platform. The osx_profile resource installs profiles by using the uuidgen library to generate a unique ProfileUUID, and then using the profiles command to install the profile on the system.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_osx_profile.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "package",
 		"package": "Recipe",
 		"snippet": "package '${1:tar}' do\n  version '${2:1.16.1-1}'\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the package resource to manage packages. When the package is installed from a local file (such as with RubyGems, dpkg, or RPM Package Manager), the file must be added to the node using the remote_file or cookbook_file resources.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "pacman_package",
 		"package": "Recipe",
 		"snippet": "pacman_package '${1:name}' do\n  action :${2:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the pacman_package resource to manage packages (using pacman) on the Arch Linux platform.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_pacman_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "paludis_package",
 		"package": "Recipe",
 		"snippet": "paludis_package '${1:name}' do\n  action :${2:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the paludis_package resource to manage packages for the Paludis platform.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_paludis_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "perl",
 		"package": "Recipe",
 		"snippet": "perl '${1:a perl script}' do\n  user '${2:root}'\n  cwd '${3:/tmp}'\n  code <<-EOH\n  ${4:# hello.pl\n  #  - Displays a warm greeting\n  print \"Hello, World!\\n\";}\n  EOH\n  action :${5:run}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the perl resource to execute scripts using the Perl interpreter. This resource may also use any of the actions and properties that are available to the execute resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use not_if and only_if to guard this resource for idempotence.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_perl.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "portage_package",
 		"package": "Recipe",
 		"snippet": "portage_package '${1:name}' do\n  action :${2:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the portage_package resource to manage packages for the Gentoo platform.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_portage_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "powershell_package",
 		"package": "Recipe",
+		"since": "12.16",
 		"snippet": "powershell_package '${1:xCertificate}' do\n  version '${2:1.1.0.0}'\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the powershell_package resource to install and manage packages via the Powershell Package Manager for the Microsoft Windows platform. The powershell_package resource requires administrative access, and a source must be configured in the Powershell Package Manager via the Register-PackageSource command",
+		"descriptionMoreURL": "https://docs.chef.io/resource_powershell_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "powershell_script",
 		"package": "Recipe",
 		"snippet": "powershell_script '${1:read-env-var}' do\n  cwd ${2:C:\\\\temp}\n  code <<-EOH \n  ${3:$stream = [System.IO.StreamWriter] \"./test-read-env-var.txt\"\n  $stream.WriteLine(\"FOO is $env:foo\")\n  $stream.close()}\n  EOH\n  action :${3:run}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the powershell_script resource to execute a script using the Windows PowerShell interpreter, much like how the script and script-based resources—bash, csh, perl, python, and ruby—are used. The powershell_script is specific to the Microsoft Windows platform and the Windows PowerShell interpreter.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_powershell_script.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "python",
 		"package": "Recipe",
 		"snippet": "python '${1:a python script}' do\n  user '${2:root}'\n  cwd '${3:/tmp}'\n  code <<-EOH\n  ${4:print \"Hello world! From Chef and Python.\"}\n  EOH\n  action :${5:run}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the python resource to execute scripts using the Python interpreter. This resource may also use any of the actions and properties that are available to the execute resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use not_if and only_if to guard this resource for idempotence.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_python.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "reboot",
 		"package": "Recipe",
+		"since": "12.0",
 		"snippet": "reboot '${1:now}' do\n  action :${2:nothing}\n  reason '${3:Need to reboot when the run completes successfully.}'\n  delay_mins ${4:5}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the reboot resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, macOS, and Linux platforms. New in Chef Client 12.0.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_reboot.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "registry_key",
 		"package": "Recipe",
 		"snippet": "registry_key '${1:HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\name_of_registry_key}' do\n  values [{:name => '${2:NewRegistryKeyValue}', :type => :${3:string}, :data => ${4:'C:\\\\Windows\\\\System32\\\\file_name.bmp'}}]\n  action :${5:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the registry_key resource to create and delete registry keys in Microsoft Windows.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_registry_key.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "remote_directory",
 		"package": "Recipe",
 		"snippet": "remote_directory '${1:/etc/apache2}' do\n  source '${2:apache2}'\n  owner '${3:root}'\n  group '${4:root}'\n  mode '${5:0755}'\n  action :${6:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the remote_directory resource to incrementally transfer a directory from a cookbook to a node. The directory that is copied from the cookbook should be located under COOKBOOK_NAME/files/default/REMOTE_DIRECTORY. The remote_directory resource will obey file specificity.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_remote_directory.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "remote_file",
 		"package": "Recipe",
 		"snippet": "remote_file '${1:var/www/customers/public_html/index.html}' do\n  source '${2:http://somesite.com/index.html}'\n  owner '${3:root}'\n  group '${4:root}'\n  mode '${5:0755}'\n  action :${6:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the remote_file resource to transfer a file from a remote location using file specificity. This resource is similar to the file resource.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_remote_file.html"
 	},
 	{
 		"type": "Resource",
@@ -511,8 +517,8 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "rhsm_errata_level '${1:example_install_moderate}' do\n  errata_level '${2:moderate}'\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the rhsm_errata resource to install all packages of a specified errata level from the Red Hat Subscription Manager. For example, you can ensure that all packages associated with errata marked at a “Critical” security level are installed.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_rhsm_errata_level.html"
 	},
 	{
 		"type": "Resource",
@@ -520,8 +526,8 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "rhsm_errata '${1:errata-install}' do\n  errata_id '${2:RHSA:2018-1234}'\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the rhsm_errata resource to install packages associated with a given Red Hat Subscription Manager Errata ID.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_rhsm_errata.html"
 	},
 	{
 		"type": "Resource",
@@ -529,8 +535,8 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "rhsm_register '${1:name}' do\n  satellite_host '${2:satellite.mycompany.com}'\n  activation_key [ ${3:'key1', 'key2'} ]\n  action :${4:register}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the rhsm_register resource to register a node with the Red Hat Subscription Manager or a local Red Hat Satellite server.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_rhsm_register.html"
 	},
 	{
 		"type": "Resource",
@@ -538,8 +544,8 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "rhsm_repo '${1:rhel-7-server-extras-rpms}' do\n  action :${5:disable}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the rhsm_repo resource to enable or disable Red Hat Subscription Manager repositories that are made available via attached subscriptions.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_rhsm_repo.html"
 	},
 	{
 		"type": "Resource",
@@ -547,80 +553,80 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "rhsm_subscription '${1:name}' do\n  action :${2:attach}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the rhsm_subscription to add and remove Redhat Subscription Manager subscriptions to your host. This can be used when a host’s activation_key does not attach all necessary subscriptions to your host.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_rhsm_subscription.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "route",
 		"package": "Recipe",
 		"snippet": "route '${1:10.0.1.10/32}' do\n  gateway '${2:10.0.0.20}'\n  device '${3:eth1}'\n  action :${4:add}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the route resource to manage the system routing table in a Linux environment.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_route.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "rpm_package",
 		"package": "Recipe",
 		"snippet": "rpm_package '${1:name}' do\n  action :${2:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the rpm_package resource to manage packages for the RPM Package Manager platform.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_rpm_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "ruby",
 		"package": "Recipe",
 		"snippet": "ruby '${1:desc}' do\n  cwd '${2:/tmp}'\n  code <<-EOH\n    ${3:mkdir -p #{extract_path\\}\n    tar xzf #{src_filename\\} -C #{extract_path\\}\n    mv #{extract_path\\}/*/* #{extract_path\\}/}\n    EOH\n  action :${4:run}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the ruby resource to execute scripts using the Ruby interpreter. This resource may also use any of the actions and properties that are available to the execute resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use not_if and only_if to guard this resource for idempotence.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_ruby.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "ruby_block",
 		"package": "Recipe",
 		"snippet": "ruby_block '${1:desc}' do\n  block do\n    ${2:Chef::Config.from_file(\"/etc/chef/client.rb\")}\n  end\n  action :${3:run}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the ruby_block resource to execute Ruby code during a chef-client run. Ruby code in the ruby_block resource is evaluated with other resources during convergence, whereas Ruby code outside of a ruby_block resource is evaluated before other resources, as the recipe is compiled.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_ruby_block.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "script",
 		"package": "Recipe",
 		"snippet": "script '${1:name}' do\n  interpreter '${2:bash}'\n  user '${3:root}'\n  cwd '${4:/tmp}'\n  code <<-EOF\n    ${5: mkdir -p /var/www/html}\n  EOF\n  action :${6:run}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the script resource to execute scripts using a specified interpreter, such as Bash, csh, Perl, Python, or Ruby. This resource may also use any of the actions and properties that are available to the execute resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use not_if and only_if to guard this resource for idempotence.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_script.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "service",
 		"package": "Recipe",
 		"snippet": "service '${1:tomcat}' do\n  supports :${2:status} => true\n  action [:${3:enable}, :${3:start}]\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the service resource to manage a service.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_service.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "smartos_package",
 		"package": "Recipe",
 		"snippet": "smartos_package '${1:name}' do\n  action :${2:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the smartos_package resource to manage packages for the SmartOS platform.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_smartos_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "solaris_package",
 		"package": "Recipe",
 		"snippet": "solaris_package '${1:name}' do\n  source '${2:/packages_directory}'\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "The solaris_package resource is used to manage packages for the Solaris platform.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_solaris_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "subversion",
 		"package": "Recipe",
 		"snippet": "subversion '${1:CouchDB Edge}' do\n  repository '${2:http://svn.apache.org/repos/asf/couchdb/trunk}'\n  revision '${3:HEAD}'\n  destination '${4:/opt/mysources/couch}'\n  action :${5:sync}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the subversion resource to manage source control resources that exist in a Subversion repository.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_subversion.html"
 	},
 	{
 		"type": "Resource",
@@ -628,8 +634,8 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "sudo '${1:passwordless-access}' do\n  commands %{2:['systemctl restart httpd', 'systemctl restart mysql']}\n  nopasswd false\n  action :${3:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the sudo resource to add or remove individual sudo entries using sudoers.d files. Sudo version 1.7.2 or newer is required to use the sudo resource, as it relies on the #includedir directive introduced in version 1.7.2. This resource does not enforce installation of the required sudo version. Chef-supported releases of Ubuntu, Debian and RHEL (6+) all support this feature.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_sudo.html"
 	},
 	{
 		"type": "Resource",
@@ -637,8 +643,8 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "swap_file '${1:/dev/sda1}' do\n  size ${2:1024}\n  action :${3:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the swap_file resource to create or delete swap files on Linux systems, and optionally to manage the swappiness configuration for a host.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_swap_file.html"
 	},
 	{
 		"type": "Resource",
@@ -646,32 +652,33 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "sysctl '${1:name}' do\n  value ${2:1024}\n  action :${3:apply}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the sysctl resource to set or remove kernel parameters using the sysctl command line tool and configuration files in the system’s sysctl.d directory. Configuration files managed by this resource are named 99-chef-KEYNAME.conf. If an existing value was already set, it will be backed up to the node and restored if the :remove action is used later.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_sysctl.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "systemd_unit",
 		"package": "Recipe",
+		"since": "12.11",
 		"snippet": "systemd_unit '${1:etcd.service}' do\n  content(${2:Unit: {\n            Description: 'Etcd',\n            Documentation: 'https://coreos.com/etcd',\n            After: 'network.target',\n          \\},\n          Service: {\n            Type: 'notify',\n            ExecStart: '/usr/local/etcd',\n            Restart: 'always',\n          \\},\n          Install: {\n            WantedBy: 'multi-user.target',\n          \\}})\n  action :${3:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the systemd_unit resource to create, manage, and run systemd units.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_systemd_unit.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "template",
 		"package": "Recipe",
 		"snippet": "template '${1:/tmp/config.conf}' do\n  source '${2:config.conf.erb}'\n  owner '${3:root}'\n  group '${4:root}'\n  mode '${5:0744}'\n  action :${6:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the template resource to manage the contents of a file using an Embedded Ruby (ERB) template by transferring files from a sub-directory of COOKBOOK_NAME/templates/ to a specified path located on a host that is running the chef-client. This resource includes actions and properties from the file resource. Template files managed by the template resource follow the same file specificity rules as the remote_file and file resources.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_template.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "user",
 		"package": "Recipe",
 		"snippet": "user '${1:random}' do\n  comment '${2:Random User}'\n  uid '${3:1000}'\n  gid '${4:users}'\n  shell '${5:/bin/bash}'\n  action :${6:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the user resource to add users, update existing users, remove users, and to lock/unlock user passwords.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_user.html"
 	},
 	{
 		"type": "Resource",
@@ -679,8 +686,8 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "windows_ad_join '${1:ad.example.org}' do\n  domain_user ${2:'nick'}\n  password '${3:p@ssw0rd1}'\n  action :${4:join}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the windows_ad_join resource to join a Windows Active Directory domain.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_windows_ad_join.html"
 	},
 	{
 		"type": "Resource",
@@ -688,16 +695,16 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "windows_auto_run '${1:BGINFO}' do\n  program '${2:C:/Sysinternals/bginfo.exe}'\n  args '${3:'C:/Sysinternals/Config.bgi' /NOLICPROMPT /TIMER:0}'\n  action :${4:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the windows_auto_run resource to set applications to run at login.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_windows_auto_run.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "windows_env",
 		"package": "Recipe",
 		"snippet": "windows_env '${1:ComSpec}' do\n  value '${2:C:\\\\Windows\\\\system32\\\\cmd.exe}'\n  action :${3:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the windows_env resource to manage environment keys in Microsoft Windows. After an environment key is set, Microsoft Windows must be restarted before the environment key will be available to the Task Scheduler.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_windows_env.html"
 	},
 	{
 		"type": "Resource",
@@ -705,24 +712,25 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "windows_feature '${1:DHCPServer}' do\n  action :${2:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the windows_feature resource to add, remove or entirely delete Windows features and roles. This resource calls the windows_feature_dism or windows_feature_powershell resources depending on the specified installation method, and defaults to DISM, which is available on both Workstation and Server editions of Windows.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_windows_feature.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "windows_feature_dism",
 		"package": "Recipe",
 		"snippet": "windows_feature_dism '${1:name}' do\n  all ${2:false}\n  source '${3:localrepository}'\n  action :${4:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the windows_feature_dism resource to add, remove, or entirely delete Windows features and roles using DISM.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_windows_feature_dism.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "windows_feature_powershell",
 		"package": "Recipe",
+		"since": "14.0",
 		"snippet": "windows_feature_powershell '${1:name}' do\n  all ${2:false}\n  source '${3:localrepository}'\n  action :${4:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the windows_feature_powershell resource to add, remove or entirely delete Windows features and roles via PowerShell. This resource offers significant speed benefits over the windows_feature_dism resource, but requires installation of the Remote Server Administration Tools on non-server releases of Windows.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_windows_feature_powershell.html"
 	},
 	{
 		"type": "Resource",
@@ -730,24 +738,25 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "windows_font '${1:name}' do\n  source '${2:https://example.com/Custom.otf}'\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the windows_font resource to install font files on Windows. By default, the font is sourced from the cookbook using the resource, but a URI source can be specified as well.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_windows_font.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "windows_package",
 		"package": "Recipe",
 		"snippet": "windows_package '${1:name}' do\n  action :${2:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the windows_package resource to manage Microsoft Installer Package (MSI) packages for the Microsoft Windows platform.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_windows_package.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "windows_path",
 		"package": "Recipe",
+		"since": "13.4",
 		"snippet": "windows_path '${1:C:\\Sysinternals}' do\n  action :${2:add}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the windows_path resource to manage the path environment variable on Microsoft Windows.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_windows_path.html"
 	},
 	{
 		"type": "Resource",
@@ -755,8 +764,8 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "windows_printer '${1:HP LaserJet 5th Floor}' do\n  driver_name '${2:HP LaserJet 4100 Series PCL6}'\n  ipv4_address '${3:10.4.64.38}'\n  action :${4:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the windows_printer resource to setup Windows printers. This resource does not install a printer driver; you must already have the driver installed on the system.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_windows_printer.html"
 	},
 	{
 		"type": "Resource",
@@ -764,16 +773,17 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "windows_printer_port '${1:10.4.64.37}' do\n  action :${2:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the windows_printer_port resource to create and delete TCP/IPv4 printer ports on Windows.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_windows_printer_port.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "windows_service",
 		"package": "Recipe",
+		"since": "12.0",
 		"snippet": "windows_service '${1:BITS}' do\n  action :${2:configure_startup}\n  startup_type :${3:manual}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the windows_service resource to create, delete, and manage a service on the Microsoft Windows platform.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_windows_service.html"
 	},
 	{
 		"type": "Resource",
@@ -781,40 +791,40 @@
 		"package": "Recipe",
 		"since": "14.0",
 		"snippet": "windows_shortcut '${1:Notepad.lnk}' do\n  description '${2:Launch Notepad}'\n  target '${3:C:\\Windows\\notepad.exe}'\n  iconlocation '${4:C:\\Windows\\notepad.exe,0}'\n  action :${5:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the windows_shortcut resource to create shortcut files on Windows.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_windows_shortcut.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "windows_task",
 		"package": "Recipe",
 		"snippet": "windows_task '${1:chef-client}' do\n  command '${2:chef-client}'\n  run_level :${3:highest}\n  frequency '${4:weekly}'\n  frequency_modifier ${5:2}\n  day ${6:Mon, Fri}\n  action :${7:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the windows_task resource to create, delete or run a Windows scheduled task. Requires Windows Server 2008 or later due to API usage.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_windows_task.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "yum_package",
 		"package": "Recipe",
 		"snippet": "yum_package '${1:wget}' do\n  source '${2:/foo/bar/wget_1.13.4-2ubuntu1.4_amd64.deb}'\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the yum_package resource to install, upgrade, and remove packages with Yum for the Red Hat and CentOS platforms. The yum_package resource is able to resolve provides data for packages much like Yum can do when it is run from the command line. This allows a variety of options for installing packages, like minimum versions, virtual provides, and library names.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_yum.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "yum_repository",
 		"package": "Recipe",
 		"snippet": "yum_repository '${1:name}' do\n  description 'Zenoss Stable repo'\n  baseurl 'http://dev.zenoss.com/yum/stable/'\n  gpgkey 'http://dev.zenoss.com/yum/RPM-GPG-KEY-zenoss'\n  action :${2:create}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the yum_repository resource to manage a Yum repository configuration file located at /etc/yum.repos.d/repositoryid.repo on the local machine. This configuration file specifies which repositories to reference, how to handle cached data, etc.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_yum_repository.html"
 	},
 	{
 		"type": "Resource",
 		"displaytext": "zypper_package",
 		"package": "Recipe",
 		"snippet": "zypper_package '${1:name}' do\n  action :${3:install}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "Use the zypper_package resource to install, upgrade, and remove packages with Zypper for the SUSE Enterprise and OpenSUSE platforms.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_zypper_package.html"
 	},
 	{
 		"type": "Resource",
@@ -822,7 +832,7 @@
 		"package": "Recipe",
 		"since": "13.3",
 		"snippet": "zypper_repository '${1:Packman}' do\n  baseurl 'http://packman.inode.at'\n  path '/suse/openSUSE_Leap_42.3'\n  action :${3:add}\nend",
-		"description": "",
-		"descriptionMoreURL": ""
+		"description": "The zypper_repository resource allows for the creation of Zypper package repositories on SUSE Enterprise Linux and openSUSE systems. This resource maintains full compatibility with the zypper_repository resource in the existing zypper cookbook.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_zypper_repository.html"
 	}
 ]
