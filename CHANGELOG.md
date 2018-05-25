@@ -2,6 +2,8 @@
 
 * full redesign of atom package
 * added dropdown descriptions, links and more
+* more things to come in the near future
+* currently known problems: cache_path, descriptions and links are not fully included
 
 ## 2.0.0
 
