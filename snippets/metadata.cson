@@ -1,58 +1,58 @@
 '.source.chef.metadata':
-  'chef_version metadata':
+  'Metadata - chef_version':
     'prefix': 'chef_version'
     'body': "chef_version '${1:>=} ${2:13}'"
-  'depends metadata':
+  'Metadata - depends':
     'prefix': 'depends'
     'body': "depends '${1:apache2}', '${2:<} ${3:1.0}'"
-  'description metadata':
+  'Metadata - description':
     'prefix': 'description'
     'body': "description '${1:A fancy cookbook that manages a herd of cats!}'"
-  'gem metadata':
+  'Metadata - gem':
     'prefix': 'gem'
     'body': "gem '${1:poise}'"
-  'issues_url metadata':
+  'Metadata - issues_url':
     'prefix': 'issues_url'
     'body': "issues_url '${1:https://github.com/johndoe/mycookbook/issues}'"
-  'license metadata':
+  'Metadata - license':
     'prefix': 'license'
     'body': "license '${1:All Rights Reserved}'"
-  'long_description metadata':
+  'Metadata - long_description':
     'prefix': 'long_description'
     'body': "long_description ${1:IO.read(File.join(File.dirname(__FILE__), 'README.md'))}"
-  'maintainer_email metadata':
+  'Metadata - maintainer_email':
     'prefix': 'maintainer_email'
     'body': "maintainer_email '${1:john_doe@example.com}'"
-  'maintainer metadata':
+  'Metadata - maintainer':
     'prefix': 'maintainer'
     'body': "maintainer '${1:John Doe}'"
-  'name metadata':
+  'Metadata - name':
     'prefix': 'name'
     'body': "name '${1:cats}'"
-  'ohai_version metadata':
+  'Metadata - ohai_version':
     'prefix': 'ohai_version'
     'body': "ohai_version '${1:>=} ${2:13}'"
-  'privacy metadata':
+  'Metadata - privacy':
     'prefix': 'privacy'
     'body': "privacy"
-  'provides metadata recipes':
+  'Metadata - provides recipes':
     'prefix': 'provides recipe'
     'body': "provides '${1:cats::sleep}'"
-  'provides metadata definitions':
+  'Metadata - provides definitions':
     'prefix': 'provides definitions'
     'body': "provides '${1:here(:kitty, :time_to_eat)}'"
-  'provides metadata resources':
+  'Metadata - provides resources':
     'prefix': 'provides resources'
     'body': "provides '${1:service[snuggle]}'"
-  'recipe metadata':
+  'Metadata - recipe':
     'prefix': 'recipe'
     'body': "recipe '${1:cats::sleep}', '${2:For a crazy 20 hours a day.}'"
-  'source_url metadata':
+  'Metadata - source_url':
     'prefix': 'source_url'
     'body': "source_url '${1:https://github.com/johndoe/mycookbook}'"
-  'supports metadata':
+  'Metadata - supports':
     'prefix': 'supports'
     'body': "supports '${1:ubuntu}'"
-  'version metadata':
+  'Metadata - version':
     'prefix': 'version'
     'body': "version '${0:2.0.0}'"

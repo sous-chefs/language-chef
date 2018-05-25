@@ -1,3 +1,7 @@
+## 2.1.0
+
+* changed descriptions and beautify
+
 ## 2.0.0
 
 * added author Darron Froese to README
