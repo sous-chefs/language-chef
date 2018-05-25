@@ -11,7 +11,7 @@ Integration for [Atom](https://atom.io/packages/)
 
 Based on chef-client Version **14.0.202**
 
-Removed resources can be found in REMOVED.md
+We're trying to leave all resources etc. in this language-pack, but we will add a deprecation notice.
 
 ## Installation
 
@@ -19,7 +19,7 @@ Removed resources can be found in REMOVED.md
 apm install language-chef
 ```
 
-Alternatively, open `Settings/Preferences -> Install` and search for `language-new-chef`.
+Alternatively, open `Settings/Preferences -> Install` and search for `language-chef`.
 
 ## Issues
 
@@ -34,12 +34,12 @@ Create an issue within this GitHub Repository
 
 ## Author
 
-Author:: Darron Froese (<darron@froese.org>)
 Author:: Patrick Schaumburg (<info@p-schaumburg.de>)
 
 ## Contributors
 
 * Tim Smith (<tsmith@chef.io>)
+* Original Author of the initial package:: Darron Froese (<darron@froese.org>)
 
 ## License
 

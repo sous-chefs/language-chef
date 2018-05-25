@@ -1,0 +1,828 @@
+[
+	{
+		"type": "Resource",
+		"displaytext": "apt_package",
+		"package": "Recipe",
+		"snippet": "apt_package '${1:name}' do\n  action :${2:install}\n  source '${3:/path/to/file.deb}'\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "apt_preference",
+		"package": "Recipe",
+		"since": "13.3",
+		"snippet": "apt_preference '${1:name}' do\n  pin '${2:version 5.1.49-3}'\n  action :${3:add}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "apt_repository",
+		"package": "Recipe",
+		"snippet": "apt_repository '${1:nginx}' do\n  uri '${2:http://nginx.org/packages/ubuntu/}'\n  components [${3:'nginx'}]\n  action :${4:add}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "apt_update",
+		"package": "Recipe",
+		"snippet": "apt_update '${1:name}' do\n  frequency ${2:86400}\n  action :${3:periodic}\nend",
+		"description": "```reboot_pending```\n\nIs a reboot pending?",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "bash",
+		"package": "Recipe",
+		"snippet": "bash '${1:a bash script}' do\n  user '${2:root}'\n  cwd '${3:/tmp}'\n  code <<-EOH\n  ${4:wget http://www.example.com/tarball.tar.bz\n  tar -zxf tarball.tar.gz\n  cd tarball\n  ./configure\n  make\n  make install}\n  EOH\n  action :${4:run}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "batch",
+		"package": "Recipe",
+		"snippet": "batch '${1:a batch script}' do\n  user '${2:Administrator}'\n  cwd '${3:C:\\\\temp}'\n  code <<-EOH\n  ${4:  7z.exe x C:\\\\temp\\ruby-1.8.7-p352-i386-mingw32.7z\n    -oC:\\source -r -y\n    xcopy C:\\source\\ruby-1.8.7-p352-i386-mingw32 C:\\ruby /e /y}\n    EOH\n  action :${3:run}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "bff_package",
+		"package": "Recipe",
+		"snippet": "bff_package '${1:name}' do\n  source '${2:/var/tmp/IBM_XL_C_13.1.0/usr/sys/inst.images/xlccmp.13.1.0}'\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "breakpoint",
+		"package": "Recipe",
+		"snippet": "breakpoint '${1:name}' do\n  action :${2:break}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "cab_package",
+		"package": "Recipe",
+		"snippet": "cab_package '${1:name}' do\n  source '${2:C:\\\\example.cab}'\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "chef_gem",
+		"package": "Recipe",
+		"snippet": "chef_gem '${1:name}' do\n  compile_time ${2:false} \n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "chef_handler",
+		"package": "Recipe",
+		"snippet": "chef_handler '${1:name_of_handler}' do\n  source '${2:path to source}'\n  arguments [${3:argument1, argument2}]\n  action :${4:enable}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "chocolatey_package",
+		"package": "Recipe",
+		"snippet": "chocolatey_package '${1:name}' do\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "cookbook_file",
+		"package": "Recipe",
+		"snippet": "cookbook_file '${1:/tmp/filename.md}' do\n  source '${2:filename.md}'\n  owner '${3:root}'\n  group '${4:root}'\n  mode '${5:0644}'\n  action :${6:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "cron",
+		"package": "Recipe",
+		"snippet": "cron '${1:name}' do\n  hour '${2:5}'\n  minute '${3:5}'\n  command '${4:/bin/true}'\n  action :${5:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "csh",
+		"package": "Recipe",
+		"snippet": "csh '${1:a csh script}' do\n  user '${2:root}'\n  cwd '${3:/tmp}'\n  code <<-EOH\n  ${4:foreach i ( 10 15 20 40 )\n    echo $i\n  end}\n  EOH\n  action :${5:run}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "directory",
+		"package": "Recipe",
+		"snippet": "directory '${1:/tmp/something}' do\n  owner '${2:root}'\n  group '${3:root}'\n  mode '${4:0755}'\n  recursive ${5:true}\n  action :${6:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "dmg_package",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "dmg_package '${1:name}' do\n  source '${2:https://packages.chef.io/files/stable/chefdk/2.5.3/mac_os_x/10.13/chefdk-2.5.3-1.dmg}'\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "dnf_package",
+		"package": "Recipe",
+		"snippet": "dnf_package '${1:only-in-custom-repo}' do\n  action :${2:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "dpkg_package",
+		"package": "Recipe",
+		"snippet": "dpkg_package '${1:name}' do\n  source '${2:/foo/bar/wget_1.13.4-2ubuntu1.4_amd64.deb}'\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "dsc_resource",
+		"package": "Recipe",
+		"snippet": "dsc_resource '${1:name}' do\n  resource :${2:archive}\n  property :${3:ensure}, '${4:Present}'\n  property :${5:path} \"${6:C:\\\\Users\\\\Public\\\\Documents\\\\example.zip}\"\n  property :${7:destination} \"${8:C:\\\\Users\\\\Public\\\\Documents\\\\ExtractionPath}\"\n  action :${9:nothing}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "dsc_script",
+		"package": "Recipe",
+		"snippet": "dsc_script '${1:name}' do\n  code <<-EOH\n  ${2:}\n  EOH\n  action :${3:run}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "execute",
+		"package": "Recipe",
+		"snippet": "execute '${1:name}' do\n  command '${2:command}'\n  action :${3:run}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "file",
+		"package": "Recipe",
+		"snippet": "file '${1:/tmp/something}' do\n  content '${2:This is a placeholder}'\n  owner '${3:root}'\n  group '${4:root}'\n  mode '${5:0755}'\n  action :${6:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "freebsd_package",
+		"package": "Recipe",
+		"snippet": "freebsd_package '${1:name}' do\n  action :${2:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "gem_package",
+		"package": "Recipe",
+		"snippet": "gem_package '${1:gem}' do\n  gem_binary '${2:/opt/chef/embedded/bin/gem}'\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "git",
+		"package": "Recipe",
+		"snippet": "git '${1:/tmp/app_name}' do\n  repository '${2:git@github.com/whoami/project}'\n  reference '${3:master}'\n  action :${4:sync}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "group",
+		"package": "Recipe",
+		"snippet": "group '${1:www-data}' do\n  members ['${2:maintenance}', '${3:clicron}']\n  append ${4:false}\n  action :${5:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "homebrew_cask",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "homebrew_cask '${1:name}' do\n  action :${2:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "homebrew_package",
+		"package": "Recipe",
+		"snippet": "homebrew_package '${1:name}' do\n  action :${2:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "homebrew_tap",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "homebrew_tap '${1:name}' do\n  action :${2:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "hostname",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "hostname '${1:name}' do\n  action :${2:set}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "http_request",
+		"package": "Recipe",
+		"snippet": "http_request '${1:some_message}' do\n  url '${2:http://example.com/check_in}'\n  message ${3:{:some => 'data'}.to_json}\n  action :${5:post}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "ifconfig",
+		"package": "Recipe",
+		"snippet": "ifconfig '${1:192.168.0.1}' do\n  device '${2:eth1}'\n  action :${3:add}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "ips_package",
+		"package": "Recipe",
+		"snippet": "ips_package '${1:name}' do\n  action :${2:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "ksh",
+		"package": "Recipe",
+		"snippet": "ksh '${1:name}' do\n  code <<-EOH\n  ${2:code}\n  EOH\n  action :${3:run}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "launchd",
+		"package": "Recipe",
+		"snippet": "launchd '${1:com.chef.every15}' do\n  source '${2:com.chef.every15.plist}'\n  action :${3:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "link",
+		"package": "Recipe",
+		"snippet": "link '${1:/tmp/passwd}' do\n  to '${2:/etc/passwd}'\n  action :${3:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "log",
+		"package": "Recipe",
+		"snippet": "log '${1:name}' do\n  message '${2:This is the message that will be added to the log.}'\n  action :${3:write}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "macos_userdefaults",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "macos_userdefaults '${1:name}' do\n  domain '${2:AppleKeyboardUIMode}'\n  global ${3:true}\n  value '${4:2}'\n  action :${5:write}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "macports_package",
+		"package": "Recipe",
+		"snippet": "macports_package '${1:name}' do\n  action :${2:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "mdadm",
+		"package": "Recipe",
+		"snippet": "mdadm '${1:/dev/md0}' do\n  devices [ ${2:'/dev/sda', '/dev/sdb'} ]\n  level ${3:0}\n  action :${4:create} ]\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "mount",
+		"package": "Recipe",
+		"snippet": "mount '${1:/mnt/volume1}' do\n  device '${2:volume1}'\n  device_type :${3:label}\n  fstype '${4:xfs}'\n  options '${5:rw}'\n  action :${6:mount}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "msu_package",
+		"package": "Recipe",
+		"snippet": "msu_package '${1:name}' do\n  source '${2:C:\\\\example.msu}'\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "ohai_hint",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "ohai_hint '${1:name}' do\n  hint_name '${2:custom}'\n  content '${3:test_content}'\n  action :${4:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "ohai",
+		"package": "Recipe",
+		"snippet": "ohai '${1:reload_passwd}' do\n  plugin '${2:etc}'\n  action :${3:reload}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "openbsd_package",
+		"package": "Recipe",
+		"snippet": "openbsd_package '${1:name}' do\n  action :${2:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "openssl_dhparam",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "openssl_dhparam '${1:/etc/httpd/ssl/dhparam.pem}' do\n  key_length ${2:4096}\n  action :${3:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "openssl_rsa_private_key_file",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "openssl_rsa_private_key_file '${1:name}' do\n  action :${2:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "openssl_rsa_public_key",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "openssl_rsa_public_key '${1:/etc/example/key.pub}' do\n  private_key_path '${2:/etc/example/key.pem}'\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "osx_profile",
+		"package": "Recipe",
+		"snippet": "osx_profile '${1:name}' do\n  profile '${2:screensaver/com.company.screensaver.mobileconfig}'\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "package",
+		"package": "Recipe",
+		"snippet": "package '${1:tar}' do\n  version '${2:1.16.1-1}'\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "pacman_package",
+		"package": "Recipe",
+		"snippet": "pacman_package '${1:name}' do\n  action :${2:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "paludis_package",
+		"package": "Recipe",
+		"snippet": "paludis_package '${1:name}' do\n  action :${2:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "perl",
+		"package": "Recipe",
+		"snippet": "perl '${1:a perl script}' do\n  user '${2:root}'\n  cwd '${3:/tmp}'\n  code <<-EOH\n  ${4:# hello.pl\n  #  - Displays a warm greeting\n  print \"Hello, World!\\n\";}\n  EOH\n  action :${5:run}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "portage_package",
+		"package": "Recipe",
+		"snippet": "portage_package '${1:name}' do\n  action :${2:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "powershell_package",
+		"package": "Recipe",
+		"snippet": "powershell_package '${1:xCertificate}' do\n  version '${2:1.1.0.0}'\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "powershell_script",
+		"package": "Recipe",
+		"snippet": "powershell_script '${1:read-env-var}' do\n  cwd ${2:C:\\\\temp}\n  code <<-EOH \n  ${3:$stream = [System.IO.StreamWriter] \"./test-read-env-var.txt\"\n  $stream.WriteLine(\"FOO is $env:foo\")\n  $stream.close()}\n  EOH\n  action :${3:run}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "python",
+		"package": "Recipe",
+		"snippet": "python '${1:a python script}' do\n  user '${2:root}'\n  cwd '${3:/tmp}'\n  code <<-EOH\n  ${4:print \"Hello world! From Chef and Python.\"}\n  EOH\n  action :${5:run}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "reboot",
+		"package": "Recipe",
+		"snippet": "reboot '${1:now}' do\n  action :${2:nothing}\n  reason '${3:Need to reboot when the run completes successfully.}'\n  delay_mins ${4:5}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "registry_key",
+		"package": "Recipe",
+		"snippet": "registry_key '${1:HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\name_of_registry_key}' do\n  values [{:name => '${2:NewRegistryKeyValue}', :type => :${3:string}, :data => ${4:'C:\\\\Windows\\\\System32\\\\file_name.bmp'}}]\n  action :${5:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "remote_directory",
+		"package": "Recipe",
+		"snippet": "remote_directory '${1:/etc/apache2}' do\n  source '${2:apache2}'\n  owner '${3:root}'\n  group '${4:root}'\n  mode '${5:0755}'\n  action :${6:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "remote_file",
+		"package": "Recipe",
+		"snippet": "remote_file '${1:var/www/customers/public_html/index.html}' do\n  source '${2:http://somesite.com/index.html}'\n  owner '${3:root}'\n  group '${4:root}'\n  mode '${5:0755}'\n  action :${6:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "rhsm_errata_level",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "rhsm_errata_level '${1:example_install_moderate}' do\n  errata_level '${2:moderate}'\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "rhsm_errata",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "rhsm_errata '${1:errata-install}' do\n  errata_id '${2:RHSA:2018-1234}'\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "rhsm_register",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "rhsm_register '${1:name}' do\n  satellite_host '${2:satellite.mycompany.com}'\n  activation_key [ ${3:'key1', 'key2'} ]\n  action :${4:register}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "rhsm_repo",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "rhsm_repo '${1:rhel-7-server-extras-rpms}' do\n  action :${5:disable}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "rhsm_subscription",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "rhsm_subscription '${1:name}' do\n  action :${2:attach}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "route",
+		"package": "Recipe",
+		"snippet": "route '${1:10.0.1.10/32}' do\n  gateway '${2:10.0.0.20}'\n  device '${3:eth1}'\n  action :${4:add}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "rpm_package",
+		"package": "Recipe",
+		"snippet": "rpm_package '${1:name}' do\n  action :${2:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "ruby",
+		"package": "Recipe",
+		"snippet": "ruby '${1:desc}' do\n  cwd '${2:/tmp}'\n  code <<-EOH\n    ${3:mkdir -p #{extract_path\\}\n    tar xzf #{src_filename\\} -C #{extract_path\\}\n    mv #{extract_path\\}/*/* #{extract_path\\}/}\n    EOH\n  action :${4:run}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "ruby_block",
+		"package": "Recipe",
+		"snippet": "ruby_block '${1:desc}' do\n  block do\n    ${2:Chef::Config.from_file(\"/etc/chef/client.rb\")}\n  end\n  action :${3:run}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "script",
+		"package": "Recipe",
+		"snippet": "script '${1:name}' do\n  interpreter '${2:bash}'\n  user '${3:root}'\n  cwd '${4:/tmp}'\n  code <<-EOF\n    ${5: mkdir -p /var/www/html}\n  EOF\n  action :${6:run}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "service",
+		"package": "Recipe",
+		"snippet": "service '${1:tomcat}' do\n  supports :${2:status} => true\n  action [:${3:enable}, :${3:start}]\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "smartos_package",
+		"package": "Recipe",
+		"snippet": "smartos_package '${1:name}' do\n  action :${2:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "solaris_package",
+		"package": "Recipe",
+		"snippet": "solaris_package '${1:name}' do\n  source '${2:/packages_directory}'\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "subversion",
+		"package": "Recipe",
+		"snippet": "subversion '${1:CouchDB Edge}' do\n  repository '${2:http://svn.apache.org/repos/asf/couchdb/trunk}'\n  revision '${3:HEAD}'\n  destination '${4:/opt/mysources/couch}'\n  action :${5:sync}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "sudo",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "sudo '${1:passwordless-access}' do\n  commands %{2:['systemctl restart httpd', 'systemctl restart mysql']}\n  nopasswd false\n  action :${3:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "swap_file",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "swap_file '${1:/dev/sda1}' do\n  size ${2:1024}\n  action :${3:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "sysctl",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "sysctl '${1:name}' do\n  value ${2:1024}\n  action :${3:apply}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "systemd_unit",
+		"package": "Recipe",
+		"snippet": "systemd_unit '${1:etcd.service}' do\n  content(${2:Unit: {\n            Description: 'Etcd',\n            Documentation: 'https://coreos.com/etcd',\n            After: 'network.target',\n          \\},\n          Service: {\n            Type: 'notify',\n            ExecStart: '/usr/local/etcd',\n            Restart: 'always',\n          \\},\n          Install: {\n            WantedBy: 'multi-user.target',\n          \\}})\n  action :${3:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "template",
+		"package": "Recipe",
+		"snippet": "template '${1:/tmp/config.conf}' do\n  source '${2:config.conf.erb}'\n  owner '${3:root}'\n  group '${4:root}'\n  mode '${5:0744}'\n  action :${6:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "user",
+		"package": "Recipe",
+		"snippet": "user '${1:random}' do\n  comment '${2:Random User}'\n  uid '${3:1000}'\n  gid '${4:users}'\n  shell '${5:/bin/bash}'\n  action :${6:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "windows_ad_join",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "windows_ad_join '${1:ad.example.org}' do\n  domain_user ${2:'nick'}\n  password '${3:p@ssw0rd1}'\n  action :${4:join}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "windows_auto_run",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "windows_auto_run '${1:BGINFO}' do\n  program '${2:C:/Sysinternals/bginfo.exe}'\n  args '${3:'C:/Sysinternals/Config.bgi' /NOLICPROMPT /TIMER:0}'\n  action :${4:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "windows_env",
+		"package": "Recipe",
+		"snippet": "windows_env '${1:ComSpec}' do\n  value '${2:C:\\\\Windows\\\\system32\\\\cmd.exe}'\n  action :${3:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "windows_feature",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "windows_feature '${1:DHCPServer}' do\n  action :${2:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "windows_feature_dism",
+		"package": "Recipe",
+		"snippet": "windows_feature_dism '${1:name}' do\n  all ${2:false}\n  source '${3:localrepository}'\n  action :${4:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "windows_feature_powershell",
+		"package": "Recipe",
+		"snippet": "windows_feature_powershell '${1:name}' do\n  all ${2:false}\n  source '${3:localrepository}'\n  action :${4:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "windows_font",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "windows_font '${1:name}' do\n  source '${2:https://example.com/Custom.otf}'\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "windows_package",
+		"package": "Recipe",
+		"snippet": "windows_package '${1:name}' do\n  action :${2:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "windows_path",
+		"package": "Recipe",
+		"snippet": "windows_path '${1:C:\\Sysinternals}' do\n  action :${2:add}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "windows_printer",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "windows_printer '${1:HP LaserJet 5th Floor}' do\n  driver_name '${2:HP LaserJet 4100 Series PCL6}'\n  ipv4_address '${3:10.4.64.38}'\n  action :${4:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "windows_printer_port",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "windows_printer_port '${1:10.4.64.37}' do\n  action :${2:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "windows_service",
+		"package": "Recipe",
+		"snippet": "windows_service '${1:BITS}' do\n  action :${2:configure_startup}\n  startup_type :${3:manual}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "windows_shortcut",
+		"package": "Recipe",
+		"since": "14.0",
+		"snippet": "windows_shortcut '${1:Notepad.lnk}' do\n  description '${2:Launch Notepad}'\n  target '${3:C:\\Windows\\notepad.exe}'\n  iconlocation '${4:C:\\Windows\\notepad.exe,0}'\n  action :${5:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "windows_task",
+		"package": "Recipe",
+		"snippet": "windows_task '${1:chef-client}' do\n  command '${2:chef-client}'\n  run_level :${3:highest}\n  frequency '${4:weekly}'\n  frequency_modifier ${5:2}\n  day ${6:Mon, Fri}\n  action :${7:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "yum_package",
+		"package": "Recipe",
+		"snippet": "yum_package '${1:wget}' do\n  source '${2:/foo/bar/wget_1.13.4-2ubuntu1.4_amd64.deb}'\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "yum_repository",
+		"package": "Recipe",
+		"snippet": "yum_repository '${1:name}' do\n  description 'Zenoss Stable repo'\n  baseurl 'http://dev.zenoss.com/yum/stable/'\n  gpgkey 'http://dev.zenoss.com/yum/RPM-GPG-KEY-zenoss'\n  action :${2:create}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "zypper_package",
+		"package": "Recipe",
+		"snippet": "zypper_package '${1:name}' do\n  action :${3:install}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Resource",
+		"displaytext": "zypper_repository",
+		"package": "Recipe",
+		"since": "13.3",
+		"snippet": "zypper_repository '${1:Packman}' do\n  baseurl 'http://packman.inode.at'\n  path '/suse/openSUSE_Leap_42.3'\n  action :${3:add}\nend",
+		"description": "",
+		"descriptionMoreURL": ""
+	}
+]

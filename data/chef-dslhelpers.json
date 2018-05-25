@@ -1,0 +1,50 @@
+[
+	{
+		"type": "Helper",
+		"displaytext": "include_recipe",
+		"package": "Resources",
+		"snippet": "include_recipe '${1:example::recipe}'",
+		"description": "A recipe can include one (or more) recipes from cookbooks by using the include_recipe method. When a recipe is included, the resources found in that recipe will be inserted (in the same exact order) at the point where the include_recipe keyword is located.",
+		"descriptionMoreURL": "https://docs.chef.io/dsl_recipe.html"
+	},
+	{
+		"type": "Helper",
+		"displaytext": "platform_family?",
+		"package": "Resources",
+		"snippet": "platform_family?('${1:debian}')",
+		"description": "Use the platform_family? method to ensure that certain actions are run for specific platform family. The platform_family? method will return true if one of the listed parameters matches the node['platform_family'] attribute that is detected by Ohai during every chef-client run.",
+		"descriptionMoreURL": "https://docs.chef.io/dsl_recipe.html"
+	},
+	{
+		"type": "Helper",
+		"displaytext": "platform?",
+		"package": "Resources",
+		"snippet": "platform?('${1:ubuntu}')",
+		"description": "Use the platform? method to ensure that certain actions are run for specific platform. The platform? method will return true if one of the listed parameters matches the node['platform'] attribute that is detected by Ohai during every chef-client run.",
+		"descriptionMoreURL": "https://docs.chef.io/dsl_recipe.html"
+	},
+	{
+		"type": "Helper",
+		"displaytext": "reboot_pending?",
+		"package": "Resources",
+		"snippet": "reboot_pending?",
+		"description": "Use the reboot_pending? method to test if a node needs a reboot, or is expected to reboot. reboot_pending? returns true when the node needs a reboot.",
+		"descriptionMoreURL": "https://docs.chef.io/dsl_recipe.html"
+	},
+	{
+		"type": "Helper",
+		"displaytext": "cookbook_name",
+		"package": "Resources",
+		"snippet": "cookbook_name",
+		"description": "Use the cookbook_name method to return the name of a cookbook.",
+		"descriptionMoreURL": "https://docs.chef.io/dsl_recipe.html"
+	},
+	{
+		"type": "Helper",
+		"displaytext": "recipe_name",
+		"package": "Resources",
+		"snippet": "recipe_name",
+		"description": "Use the recipe_name method to return the name of a recipe.",
+		"descriptionMoreURL": "https://docs.chef.io/dsl_recipe.html"
+	}
+]

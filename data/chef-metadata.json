@@ -1,0 +1,170 @@
+[
+	{
+		"type": "Metadata",
+		"displaytext": "chef_version",
+		"package": "metadata.rb",
+		"snippet": "chef_version '${1:>=} ${2:13}'",
+		"description": "A range of chef-client versions that are supported by this cookbook.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "depends",
+		"package": "metadata.rb",
+		"snippet": "depends '${1:apache2}', '${2:<} ${3:1.0}'",
+		"description": "This field requires that a cookbook with a matching name and version exists on the Chef server. When the match exists, the Chef server includes the dependency as part of the set of cookbooks that are sent to the node when the chef-client runs. It is very important that the depends field contain accurate data. If a dependency statement is inaccurate, the chef-client may not be able to complete the configuration of the system.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "description",
+		"package": "metadata.rb",
+		"snippet": "description '${1:A fancy cookbook that manages a herd of cats!}'",
+		"description": "A short description of a cookbook and its functionality.\nThis description is also shown at the Chef Supermarket.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "gem",
+		"package": "metadata.rb",
+		"snippet": "gem '${1:poise}'",
+		"description": "Specifies a gem dependency to be installed via the chef_gem resource after all cookbooks are synchronized, but before any other cookbook loading is done. Use this attribute once per gem dependency.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "issues_url",
+		"package": "metadata.rb",
+		"snippet": "issues_url '${1:https://github.com/johndoe/mycookbook/issues}'",
+		"description": "The URL for the location in which a cookbook’s issue tracking is maintained. This setting is also used by Chef Supermarket. In Chef Supermarket, this value is used to define the destination for the 'View Issues' link.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "license",
+		"package": "metadata.rb",
+		"snippet": "license '${1:All Rights Reserved}'",
+		"description": "The type of license under which a cookbook is distributed: Apache v2.0, GPL v2, GPL v3, MIT, or license 'Proprietary - All Rights Reserved (default). Please be aware of the licenses for files inside of a cookbook and be sure to follow any restrictions they describe.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "long_description README.md",
+		"package": "metadata.rb",
+		"snippet": "long_description IO.read(File.join(File.dirname(__FILE__), '${1:README.md}'))",
+		"description": "Ruby Syntax to include README.md as long_description.\nA longer description that ideally contains full instructions on the proper use of a cookbook, including definitions, libraries, dependencies, and so on. There are two ways to use this field: In this case with the contents embedded in the field itself.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "long_description regular",
+		"package": "metadata.rb",
+		"snippet": "long_description <<-EOH\n${1:= DESCRIPTION:\n\nComplete Debian/Ubuntu style Apache2 configuration.}\nEOH",
+		"description": "A longer description that ideally contains full instructions on the proper use of a cookbook, including definitions, libraries, dependencies, and so on. There are two ways to use this field: In this case with the contents pulled from a file at a specified path, such as a README.rdoc located at the top of a cookbook directory.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "maintainer",
+		"package": "metadata.rb",
+		"snippet": "maintainer '${1:John Doe}'",
+		"description": "The name of the person responsible for maintaining a cookbook, either an individual or an organization.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "maintainer_email",
+		"package": "metadata.rb",
+		"snippet": "maintainer_email '${1:john_doe@example.com}'",
+		"description": "The email address for the person responsible for maintaining a cookbook. Only one email can be listed here, so if this needs to be forwarded to multiple people consider using an email address that is already setup for mail forwarding.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "name",
+		"package": "metadata.rb",
+		"snippet": "name '${1:cats}'",
+		"description": "Required. The name of the cookbook.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "ohai_version",
+		"package": "metadata.rb",
+		"snippet": "ohai_version '${1:>=} ${2:13}'",
+		"description": "A range of Ohai versions that are supported by this cookbook.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "privacy",
+		"package": "metadata.rb",
+		"snippet": "privacy",
+		"description": "Specify that a cookbook is private.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "provides recipe",
+		"package": "metadata.rb",
+		"snippet": "provides '${1:cats::sleep}'",
+		"description": "Add a recipe that is provided by this cookbook, should the auto-populated list be insufficient.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "provides definition",
+		"package": "metadata.rb",
+		"snippet": "provides '${1:here(:kitty, :time_to_eat)}'",
+		"description": "Add a definition that is provided by this cookbook, should the auto-populated list be insufficient.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "provides resource",
+		"package": "metadata.rb",
+		"snippet": "provides '${1:service[snuggle]}'",
+		"description": "Add a resource that is provided by this cookbook, should the auto-populated list be insufficient.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "recipe",
+		"package": "metadata.rb",
+		"snippet": "recipe '${1:cats::sleep}', '${2:For a crazy 20 hours a day.}'",
+		"description": "A description for a recipe, mostly for cosmetic value within the Chef server user interface.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "source_url",
+		"package": "metadata.rb",
+		"snippet": "source_url '${1:https://github.com/johndoe/mycookbook}'",
+		"description": "The URL for the location in which a cookbook’s source code is maintained. This setting is also used by Chef Supermarket. In Chef Supermarket, this value is used to define the destination for the 'View Source' link.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "supports OS",
+		"package": "metadata.rb",
+		"snippet": "supports '${1:ubuntu}'",
+		"description": "Show that a cookbook has a supported platform.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "supports specified OS",
+		"package": "metadata.rb",
+		"snippet": "supports '${1:ubuntu}', '${2:>=} ${3:14.04}'",
+		"description": "Show that a cookbook has a supported platform. Use a version constraint to define dependencies for platform versions: < (less than), <= (less than or equal to), = (equal to), >= (greater than or equal to), ~> (approximately greater than), or > (greater than). To specify more than one platform, use more than one supports field, once for each platform.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	},
+	{
+		"type": "Metadata",
+		"displaytext": "version",
+		"package": "metadata.rb",
+		"snippet": "version '${0:2.0.0}'",
+		"description": "The current version of a cookbook. Version numbers always follow a simple three-number version sequence.",
+		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
+	}
+]

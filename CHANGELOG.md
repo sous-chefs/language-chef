@@ -1,6 +1,11 @@
+## 3.0.0
+
+* full redesign of atom package
+* added dropdown descriptions, links and more
+
 ## 2.0.0
 
-* added author Darron Froese to README
+* added original author Darron Froese to README
 * changed LICENSE to Apache 2.0
 * added Patrick Schaumburg to LICENSE
 * changed MIT to Apache 2.0 in package.json

@@ -1,0 +1,162 @@
+[
+	{
+		"type": "Properties",
+		"displaytext": "action nothing",
+		"package": "Resources",
+		"snippet": "action :${1:nothing}",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "action enable start",
+		"package": "Resources",
+		"snippet": "action [ :${1:enable}, :${2:start} ]",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "group",
+		"package": "Resources",
+		"snippet": "group '${1:group}'",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "user",
+		"package": "Resources",
+		"snippet": "user '${1:user}'",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "mode",
+		"package": "Resources",
+		"snippet": "mode '${1:0755}'",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "not_if",
+		"package": "Resources",
+		"snippet": "not_if \"${1:}\"",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "only_if",
+		"package": "Resources",
+		"snippet": "only_if \"${1:}\"",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "provider",
+		"package": "Resources",
+		"snippet": "provider Chef::Provider::${1:Package::Rubygems}",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "retries",
+		"package": "Resources",
+		"snippet": "retries ${1:1}\nretry_delay ${2:2}",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "cwd",
+		"package": "Resources",
+		"snippet": "cwd '${1:/myapp}'",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "command",
+		"package": "Resources",
+		"snippet": "command '${1:echo $PWD}'",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "environment",
+		"package": "Resources",
+		"snippet": "environment '${1:JAVA_HOME}' => '${2:/usr/lib/java/jdk1.7/home}'",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "guard_interpreter",
+		"package": "Resources",
+		"snippet": "guard_interpreter :${1:bash}",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "path",
+		"package": "Resources",
+		"snippet": "path '${1:/foo/bar}'",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "notifies",
+		"package": "Resources",
+		"snippet": "notifies :${1:run}, '${2:service}[${3:test-nagios-config}]', :${4:delayed}",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "source",
+		"package": "Resources",
+		"snippet": "source '${1:foobar.erb}'",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "message",
+		"package": "Resources",
+		"snippet": "message '${1:Just a message}'",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "url",
+		"package": "Resources",
+		"snippet": "url '${1:https://github.com/pschaumburg/language-chef}'",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "subscribes",
+		"package": "Resources",
+		"snippet": "subscribes :${1:restart}, '${2:resource}[${3:name}]', :${4:timer}",
+		"description": "",
+		"descriptionMoreURL": ""
+	},
+	{
+		"type": "Properties",
+		"displaytext": "recursive",
+		"package": "Resources",
+		"snippet": "recursive ${1:true}",
+		"description": "",
+		"descriptionMoreURL": ""
+	}
+]
