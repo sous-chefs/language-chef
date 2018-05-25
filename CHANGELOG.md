@@ -1,3 +1,7 @@
+## 3.2.0
+
+* adding dependency for language-inspec
+
 ## 3.1.0
 
 * added descriptions to all resources
