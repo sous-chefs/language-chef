@@ -5,6 +5,10 @@
 * more things to come in the near future
 * currently known problems: cache_path, descriptions and links are not fully included
 
+## 2.1.0
+
+* changed descriptions and beautify
+
 ## 2.0.0
 
 * added original author Darron Froese to README
