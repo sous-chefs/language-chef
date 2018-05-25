@@ -22,7 +22,7 @@
     "atom": ">=1.15.0"
   },
   "dependencies": {
-    "language-inspec"
+    "language-inspec": ">= 3.0.0"
   },
   "devDependencies": {},
   "optionalDependencies": {},
