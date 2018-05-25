@@ -11,7 +11,8 @@
     "resource",
     "syntax",
     "snippets",
-    "chef-client"
+    "chef-client",
+    "autocomplete"
   ],
   "repository": "https://github.com/sous-chefs/language-chef",
   "license": "Apache2.0",
@@ -21,6 +22,6 @@
   "dependencies": {},
   "devDependencies": {},
   "optionalDependencies": {},
-  "readme": "# Language - Chef\n\nChef resources snippet and grammar support",
+  "readme": "# Language - Chef\n\nAll Chef resources, helpers, metadata information and properties with autocompletion.",
   "readmeFilename": "README.md"
 }
