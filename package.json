@@ -1,7 +1,7 @@
 {
   "name": "language-chef",
   "main": "./lib/main",
-  "version": "3.0.2",
+  "version": "3.2.0",
   "description": "Chef language support based on chef-client 13 + 14",
   "keywords": [
     "language",
