@@ -1,3 +1,8 @@
+## 3.0.1
+
+* fix missing picture
+* fix startup in package.json
+
 ## 3.0.0
 
 * full redesign of atom package

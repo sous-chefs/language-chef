@@ -1,5 +1,6 @@
 {
   "name": "language-chef",
+  "main": "./lib/main",
   "version": "3.0.0",
   "description": "Chef language support based on chef-client 13 + 14",
   "keywords": [
@@ -15,13 +16,21 @@
     "autocomplete"
   ],
   "repository": "https://github.com/sous-chefs/language-chef",
+  "author": "Patrick Schaumburg <info@p-schaumburg.de>",
   "license": "Apache2.0",
   "engines": {
-    "atom": ">=1.0.0"
+    "atom": ">=1.15.0"
   },
   "dependencies": {},
   "devDependencies": {},
   "optionalDependencies": {},
   "readme": "# Language - Chef\n\nAll Chef resources, helpers, metadata information and properties with autocompletion.",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "4.0.0": "getProvider"
+      }
+    }
+  }
 }
