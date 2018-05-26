@@ -21,9 +21,14 @@
   "engines": {
     "atom": ">=1.15.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "atom-package-deps": "*"
+  },
   "devDependencies": {},
   "optionalDependencies": {},
+  "package-deps": [
+    "language-inspec"
+  ],
   "readme": "# Language - Chef\n\nAll Chef resources, helpers, metadata information and properties with autocompletion.",
   "readmeFilename": "README.md",
   "providedServices": {
