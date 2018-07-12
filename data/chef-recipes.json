@@ -90,11 +90,29 @@
 	},
 	{
 		"type": "Resource",
+		"displaytext": "chocolatey_config",
+		"package": "Recipe",
+		"since": "14.3.37",
+		"snippet": "chocolatey_config '${1:name}' do\n  conig_key '${2:keyname}'\n  value '${3:value}'\n  action :${4:set}\nend",
+		"description": "Use the chocolatey_config resource to add or remove Chocolatey configuration keys.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_chocolatey_config.html"
+	},
+	{
+		"type": "Resource",
 		"displaytext": "chocolatey_package",
 		"package": "Recipe",
-		"snippet": "chocolatey_package '${1:name}' do\n  action :${3:install}\nend",
+		"snippet": "chocolatey_package '${1:name}' do\n  action :${2:install}\nend",
 		"description": "Use the chocolatey_package resource to manage packages using Chocolatey on the Microsoft Windows platform.",
 		"descriptionMoreURL": "https://docs.chef.io/resource_chocolatey_package.html"
+	},
+	{
+		"type": "Resource",
+		"displaytext": "chocolatey_source",
+		"package": "Recipe",
+		"since": "14.3.37",
+		"snippet": "chocolatey_source '${1:name}' do\n  source_name '${2:source_name}'\n  source '${3:source}'\n  priority ${4:2}\n  action :${5:add}\nend",
+		"description": "Use the chocolatey_source resource to add or remove Chocolatey sources.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_chocolatey_source.html"
 	},
 	{
 		"type": "Resource",
@@ -275,6 +293,15 @@
 		"snippet": "ips_package '${1:name}' do\n  action :${2:install}\nend",
 		"description": "Use the ips_package resource to manage packages (using Image Packaging System (IPS)) on the Solaris 11 platform.",
 		"descriptionMoreURL": "https://docs.chef.io/resource_ips_package.html"
+	},
+	{
+		"type": "Resource",
+		"displaytext": "kernel_module",
+		"package": "Recipe",
+		"since": "14.3.37",
+		"snippet": "kernel_module '${1:name}' do\n  modname '${2:modname}'\n  action :${3:install}\nend",
+		"description": "Use the kernel_module resource to manage kernel modules on Linux systems. This resource can load, unload, blacklist, install, and uninstall modules.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_kernel_module.html"
 	},
 	{
 		"type": "Resource",
@@ -472,6 +499,15 @@
 	},
 	{
 		"type": "Resource",
+		"displaytext": "powershell_package_source",
+		"package": "Recipe",
+		"since": "14.3.37",
+		"snippet": "powershell_package_source '${1:name}' do\n  source_name '${2:source_name}'\n  url '${3:url}'\n  trusted action :${4:register}\nend",
+		"description": "Use the powershell_package_source resource to register a powershell package repository.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_powershell_package_source.html"
+	},
+	{
+		"type": "Resource",
 		"displaytext": "python",
 		"package": "Recipe",
 		"snippet": "python '${1:a python script}' do\n  user '${2:root}'\n  cwd '${3:/tmp}'\n  code <<-EOH\n  ${4:print \"Hello world! From Chef and Python.\"}\n  EOH\n  action :${5:run}\nend",
@@ -619,6 +655,15 @@
 		"snippet": "solaris_package '${1:name}' do\n  source '${2:/packages_directory}'\n  action :${3:install}\nend",
 		"description": "The solaris_package resource is used to manage packages for the Solaris platform.",
 		"descriptionMoreURL": "https://docs.chef.io/resource_solaris_package.html"
+	},
+	{
+		"type": "Resource",
+		"displaytext": "ssh_known_hosts_entry",
+		"package": "Recipe",
+		"since": "14.3.37",
+		"snippet": "ssh_known_hosts_entry '${1:name}' do\n  host '${2:https://gihub.com}'\n  action :${3:create}\nend",
+		"description": "Use the ssh_known_hosts_entry resource to add an entry for the specified host in /etc/ssh/ssh_known_hosts or a user’s known hosts file if specified.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_ssh_known_hosts_entry.html"
 	},
 	{
 		"type": "Resource",
