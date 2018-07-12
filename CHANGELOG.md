@@ -1,3 +1,11 @@
+## 3.3.0
+
+* adding new resource chocolatey_config
+* adding new resource chocolatey_source
+* adding new resource kernel_module
+* adding new resource powershell_package_source
+* adding new resource ssh_known_hosts_entry
+
 ## 3.2.1
 
 * removed dependeny to language-inspec as it's not working
