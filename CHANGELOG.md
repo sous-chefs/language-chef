@@ -1,3 +1,7 @@
+## 3.3.1
+
+* fixing wrong property in chocolatey_config resource
+
 ## 3.3.0
 
 * adding new resource chocolatey_config

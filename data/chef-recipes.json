@@ -93,7 +93,7 @@
 		"displaytext": "chocolatey_config",
 		"package": "Recipe",
 		"since": "14.3.37",
-		"snippet": "chocolatey_config '${1:name}' do\n  conig_key '${2:keyname}'\n  value '${3:value}'\n  action :${4:set}\nend",
+		"snippet": "chocolatey_config '${1:name}' do\n  config_key '${2:keyname}'\n  value '${3:value}'\n  action :${4:set}\nend",
 		"description": "Use the chocolatey_config resource to add or remove Chocolatey configuration keys.",
 		"descriptionMoreURL": "https://docs.chef.io/resource_chocolatey_config.html"
 	},
