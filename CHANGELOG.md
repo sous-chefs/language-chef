@@ -1,27 +1,35 @@
+## 3.4.1
+
+* fix changelog entries
+
+## 3.4.0
+
+* change colors for better view
+
 ## 3.3.1
 
-* fixing wrong property in chocolatey_config resource
+* fix wrong property in chocolatey_config resource
 
 ## 3.3.0
 
-* adding new resource chocolatey_config
-* adding new resource chocolatey_source
-* adding new resource kernel_module
-* adding new resource powershell_package_source
-* adding new resource ssh_known_hosts_entry
+* add new resource chocolatey_config
+* add new resource chocolatey_source
+* add new resource kernel_module
+* add new resource powershell_package_source
+* add new resource ssh_known_hosts_entry
 
 ## 3.2.1
 
-* removed dependeny to language-inspec as it's not working
+* remove dependeny to language-inspec as it's not working
 
 ## 3.2.0
 
-* adding dependency for language-inspec
+* add dependency for language-inspec
 
 ## 3.1.0
 
-* added descriptions to all resources
-* added links to all resources
+* add descriptions to all resources
+* add links to all resources
 
 ## 3.0.1
 
@@ -31,7 +39,7 @@
 ## 3.0.0
 
 * full redesign of atom package
-* added dropdown descriptions, links and more
+* add dropdown descriptions, links and more
 * more things to come in the near future
 * currently known problems: cache_path, descriptions and links are not fully included
 
@@ -42,34 +50,34 @@
 ## 2.0.0
 
 * added original author Darron Froese to README
-* changed LICENSE to Apache 2.0
-* added Patrick Schaumburg to LICENSE
-* changed MIT to Apache 2.0 in package.json
-* removed author information in package.json
-* changed repository source to sous-chef org
+* change LICENSE to Apache 2.0
+* add Patrick Schaumburg to LICENSE
+* change MIT to Apache 2.0 in package.json
+* remove author information in package.json
+* change repository source to sous-chef org
 
 
 ## 1.7.1
 
-* fixing usage of grammars for dsl helpers and properties
+* fix usage of grammars for dsl helpers and properties
 
 ## 1.7.0
 
-* adding dsl helpers as new snippets
+* add dsl helpers as new snippets
 
 ## 1.6.0
 
-* adding funcionality to comment out in correct form with #
-* changed ohai_version autofill data
-* changed chef_version autofill data
-* changed supports autofill data
-* removed deploy due to deprecation
-* adding REMOVED.md for all removed resources, properties etc.
+* add funcionality to comment out in correct form with #
+* change ohai_version autofill data
+* change chef_version autofill data
+* change supports autofill data
+* remove deploy due to deprecation
+* add REMOVED.md for all removed resources, properties etc.
 * change README
 
 ## 1.5.2
 
-* adding default actions to all resources
+* add default actions to all resources
 
 ## 1.5.1
 
@@ -81,11 +89,11 @@
 
 ## 1.4.0
 
-* adding deploy resource
-* adding dmg_package resource
-* adding rhsm_register
-* adding windows_feature_dism
-* adding windows_feature_powershell
+* add deploy resource
+* add dmg_package resource
+* add rhsm_register
+* add windows_feature_dism
+* add windows_feature_powershell
 
 ## 1.3.2
 
@@ -97,45 +105,45 @@
 
 ## 1.3.1
 
-* fixing some bugs
+* fix some bugs
 
 ## 1.3.0
 
-* adding finally all resources
-* fixing more typos
+* add finally all resources
+* fix more typos
 
 ## 1.2.2
 
-* fixing more typos in apt_package
+* fix more typos in apt_package
 
 ## 1.2.1
 
-* fixing typo in apt_package
+* fix typo in apt_package
 
 ## 1.2.0
 
-* Adding resources from H-O
+* add resources from H-O
 
 ## 1.1.0
 
-* Adding resources from A-G
+* add resources from A-G
 
 ## 1.0.2
 
-* Fixing actions
+* fix actions
 
 ## 1.0.1
 
-* Fixing guard_interpreter delimiter
-* Adding some more properties
+* fix guard_interpreter delimiter
+* add some more properties
 
 ## 1.0.0
 
-* Adding properties for Chef resources
+* add properties for Chef resources
 
 ## 0.9.2
 
-* Fixing some tab issues
+* fix some tab issues
 
 ## 0.9.1
 
