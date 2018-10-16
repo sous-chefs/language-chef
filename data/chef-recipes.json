@@ -451,6 +451,33 @@
 	},
 	{
 		"type": "Resource",
+		"displaytext": "openssl_x509_crl",
+		"package": "Recipe",
+		"since": "14.4.56",
+		"snippet": "openssl_x509_crl '${1:/etc/ssl_test/my_ca.crl}' do\n  ca_cert_file '${2:/etc/ssl_test/my_ca.crt}'\n  ca_key_file '${3:/etc/ssl_test/my_ca.key}'\n  action :${4:create}\n  end",
+		"description": "Use the openssl_x509_crl resource to generate PEM-formatted x509 certificate revocation list (CRL) files.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_openssl_x509_crl.html"
+	},
+	{
+		"type": "Resource",
+		"displaytext": "openssl_x509_certificate",
+		"package": "Recipe",
+		"since": "14.4.56",
+		"snippet": "openssl_x509_certificate '${1:/etc/httpd/ssl/mycert.pem}' do\n  common_name '${2:www.f00bar.com}'\n  org '${3:Foo Bar}'\n  org_unit '${4:Lab}'\n  country '${5:US}'\n  action :${6:create}\n  end",
+		"description": "Use the openssl_x509_certificate resource to generate signed or self-signed, PEM-formatted x509 certificates.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_openssl_x509_certificate.html"
+	},
+	{
+		"type": "Resource",
+		"displaytext": "openssl_x509_request",
+		"package": "Recipe",
+		"since": "14.4.56",
+		"snippet": "openssl_x509_request '${1:/etc/ssl_test/my_ec_request.csr}' do\n  common_name '${2:myecrequest.example.com}'\n  org '${3:Test Kitchen Example}'\n  org_unit '${4:Kitchens}'\n  country '${5:US}'\n  action :${6:create}\n  end",
+		"description": "Use the openssl_x509_request resource to generate PEM-formatted x509 certificates requests.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_openssl_x509_request.html"
+	},
+	{
+		"type": "Resource",
 		"displaytext": "osx_profile",
 		"package": "Recipe",
 		"since": "12.7",
