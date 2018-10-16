@@ -1,3 +1,11 @@
+## 3.5.0
+
+* add new resource cron_access
+* add new resource cron_d
+* add new resource openssl_x509_crl
+* add new resource openssl_x509_certificate
+* add new resource openssl_x509_request
+
 ## 3.4.1
 
 * fix changelog entries
