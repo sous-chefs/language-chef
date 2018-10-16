@@ -132,6 +132,24 @@
 	},
 	{
 		"type": "Resource",
+		"displaytext": "cron_access",
+		"package": "Recipe",
+		"since": "14.4.56",
+		"snippet": "cron_access '${1:name}' do\n  user '${2:jenkins}'\n  action :${3:allow}\nend",
+		"description": "Use the cron_access resource to manage the /etc/cron.allow and /etc/cron.deny files.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_cron_access.html"
+	},
+	{
+		"type": "Resource",
+		"displaytext": "cron_d",
+		"package": "Recipe",
+		"since": "14.4.56",
+		"snippet": "cron_d '${1:name}' do\n  hour '${2:5}'\n  minute '${3:5}'\n  command '${4:/bin/true}'\n  action :${5:create}\nend",
+		"description": "Use the cron_d resource to manage cron job files in the /etc/cron.d directory.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_cron_d.html"
+	},
+	{
+		"type": "Resource",
 		"displaytext": "csh",
 		"package": "Recipe",
 		"snippet": "csh '${1:a csh script}' do\n  user '${2:root}'\n  cwd '${3:/tmp}'\n  code <<-EOH\n  ${4:foreach i ( 10 15 20 40 )\n    echo $i\n  end}\n  EOH\n  action :${5:run}\nend",
