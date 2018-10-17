@@ -442,6 +442,24 @@
 	},
 	{
 		"type": "Resource",
+		"displaytext": "openssl_ec_private_key",
+		"package": "Recipe",
+		"since": "14.4.56",
+		"snippet": "openssl_ec_private_key '${1:name}' do\n  force '${2:false}'\n  key_pass '${3:AnYPasSPhRaSe}'\n  action :${4:create}\n  end",
+		"description": "Use the openssl_ec_private_key resource to generate an elliptic curve (EC) private key file.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_openssl_ec_private_key.html"
+	},
+	{
+		"type": "Resource",
+		"displaytext": "openssl_ec_public_key",
+		"package": "Recipe",
+		"since": "14.4.56",
+		"snippet": "openssl_ec_public_key '${1:/etc/example/key.pub}' do\n  private_key_path '${2:/etc/example/key.pem}'\n  action :${3:create}\n  end",
+		"description": "Use the openssl_ec_public_key resource to generate elliptic curve (EC) public key files from a given EC private key.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_openssl_ec_public_key.html"
+	},
+	{
+		"type": "Resource",
 		"displaytext": "openssl_rsa_private_key_file",
 		"package": "Recipe",
 		"since": "14.0",

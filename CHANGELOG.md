@@ -3,6 +3,8 @@
 * add new resource cron_access
 * add new resource cron_d
 * add new resource locale
+* add new resource openssl_ec_private_key
+* add new resource openssl_ec_public_key
 * add new resource openssl_x509_crl
 * add new resource openssl_x509_certificate
 * add new resource openssl_x509_request
