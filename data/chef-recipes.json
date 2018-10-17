@@ -350,7 +350,7 @@
 		"type": "Resource",
 		"displaytext": "locale",
 		"package": "Recipe",
-		"since": "14.5",
+		"since": "14.5.27",
 		"snippet": "locale '${1:name}' do\n  lang '${2:en_US.utf8}'\n  lc_all ${3:en_US.utf8}\n  action :${4:update}\nend",
 		"description": "Use the locale resource to set the system’s locale.",
 		"descriptionMoreURL": "https://docs.chef.io/resource_locale.html"
@@ -923,7 +923,7 @@
 		"type": "Resource",
 		"displaytext": "windows_workgroup",
 		"package": "Recipe",
-		"since": "14.5",
+		"since": "14.5.27",
 		"snippet": "windows_workgroup '${1:name}' do\n  reboot '${2:immediate}'\n  sensitive ${3:true}\n  action :${4:join}\nend",
 		"description": "Use the windows_workgroup resource to join or change the workgroup of a Windows host.",
 		"descriptionMoreURL": "https://docs.chef.io/resource_windows_workgroup.html"
