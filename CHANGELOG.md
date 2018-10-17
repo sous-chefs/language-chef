@@ -1,3 +1,7 @@
+## 3.5.1
+
+* change chef-client version to 14.5.27
+
 ## 3.5.0
 
 * add new resource cron_access

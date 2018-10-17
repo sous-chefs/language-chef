@@ -9,7 +9,7 @@ Integration for [Atom](https://atom.io/packages/)
 - recipes resource
 - dsl helpers like chef cache path and platform?
 
-Based on chef-client Version **14.0.202**
+Based on chef-client Version **14.5.27**
 
 We're trying to leave all resources etc. in this language-pack, but we will add a deprecation notice.
 
