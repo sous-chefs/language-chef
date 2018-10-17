@@ -348,6 +348,15 @@
 	},
 	{
 		"type": "Resource",
+		"displaytext": "locale",
+		"package": "Recipe",
+		"since": "14.5",
+		"snippet": "locale '${1:name}' do\n  lang '${2:en_US.utf8}'\n  lc_all ${3:en_US.utf8}\n  action :${4:update}\nend",
+		"description": "Use the locale resource to set the system’s locale.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_locale.html"
+	},
+	{
+		"type": "Resource",
 		"displaytext": "log",
 		"package": "Recipe",
 		"snippet": "log '${1:name}' do\n  message '${2:This is the message that will be added to the log.}'\n  action :${3:write}\nend",
@@ -891,6 +900,15 @@
 		"snippet": "windows_task '${1:chef-client}' do\n  command '${2:chef-client}'\n  run_level :${3:highest}\n  frequency '${4:weekly}'\n  frequency_modifier ${5:2}\n  day ${6:Mon, Fri}\n  action :${7:create}\nend",
 		"description": "Use the windows_task resource to create, delete or run a Windows scheduled task. Requires Windows Server 2008 or later due to API usage.",
 		"descriptionMoreURL": "https://docs.chef.io/resource_windows_task.html"
+	},
+	{
+		"type": "Resource",
+		"displaytext": "windows_workgroup",
+		"package": "Recipe",
+		"since": "14.5",
+		"snippet": "windows_workgroup '${1:name}' do\n  reboot '${2:immediate}'\n  sensitive ${3:true}\n  action :${4:join}\nend",
+		"description": "Use the windows_workgroup resource to join or change the workgroup of a Windows host.",
+		"descriptionMoreURL": "https://docs.chef.io/resource_windows_workgroup.html"
 	},
 	{
 		"type": "Resource",
