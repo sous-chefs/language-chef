@@ -49,22 +49,6 @@
 	},
 	{
 		"type": "Metadata",
-		"displaytext": "long_description README.md",
-		"package": "metadata.rb",
-		"snippet": "long_description IO.read(File.join(File.dirname(__FILE__), '${1:README.md}'))",
-		"description": "Ruby Syntax to include README.md as long_description.\nA longer description that ideally contains full instructions on the proper use of a cookbook, including definitions, libraries, dependencies, and so on. There are two ways to use this field: In this case with the contents embedded in the field itself.",
-		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
-	},
-	{
-		"type": "Metadata",
-		"displaytext": "long_description regular",
-		"package": "metadata.rb",
-		"snippet": "long_description <<-EOH\n${1:= DESCRIPTION:\n\nComplete Debian/Ubuntu style Apache2 configuration.}\nEOH",
-		"description": "A longer description that ideally contains full instructions on the proper use of a cookbook, including definitions, libraries, dependencies, and so on. There are two ways to use this field: In this case with the contents pulled from a file at a specified path, such as a README.rdoc located at the top of a cookbook directory.",
-		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
-	},
-	{
-		"type": "Metadata",
 		"displaytext": "maintainer",
 		"package": "metadata.rb",
 		"snippet": "maintainer '${1:John Doe}'",
@@ -101,38 +85,6 @@
 		"package": "metadata.rb",
 		"snippet": "privacy",
 		"description": "Specify that a cookbook is private.",
-		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
-	},
-	{
-		"type": "Metadata",
-		"displaytext": "provides recipe",
-		"package": "metadata.rb",
-		"snippet": "provides '${1:cats::sleep}'",
-		"description": "Add a recipe that is provided by this cookbook, should the auto-populated list be insufficient.",
-		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
-	},
-	{
-		"type": "Metadata",
-		"displaytext": "provides definition",
-		"package": "metadata.rb",
-		"snippet": "provides '${1:here(:kitty, :time_to_eat)}'",
-		"description": "Add a definition that is provided by this cookbook, should the auto-populated list be insufficient.",
-		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
-	},
-	{
-		"type": "Metadata",
-		"displaytext": "provides resource",
-		"package": "metadata.rb",
-		"snippet": "provides '${1:service[snuggle]}'",
-		"description": "Add a resource that is provided by this cookbook, should the auto-populated list be insufficient.",
-		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
-	},
-	{
-		"type": "Metadata",
-		"displaytext": "recipe",
-		"package": "metadata.rb",
-		"snippet": "recipe '${1:cats::sleep}', '${2:For a crazy 20 hours a day.}'",
-		"description": "A description for a recipe, mostly for cosmetic value within the Chef server user interface.",
 		"descriptionMoreURL": "https://docs.chef.io/config_rb_metadata.html"
 	},
 	{
