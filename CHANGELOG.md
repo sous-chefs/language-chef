@@ -1,3 +1,5 @@
+# CHANGELOG
+
 ## 3.5.1
 
 * change chef-client version to 14.5.27
@@ -71,7 +73,6 @@
 * change MIT to Apache 2.0 in package.json
 * remove author information in package.json
 * change repository source to sous-chef org
-
 
 ## 1.7.1
 
