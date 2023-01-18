@@ -4,7 +4,6 @@
 
 Standardise files with files in sous-chefs/repo-management
 
-
 ## 3.5.1
 
 * change chef-client version to 14.5.27
