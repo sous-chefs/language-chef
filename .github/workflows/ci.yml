@@ -7,20 +7,11 @@ name: ci
     branches: [main]
 
 jobs:
-  yamllint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v3
-      - name: Run yaml Lint
-        uses: actionshub/yamllint@main
-
-  markdownlint-cli2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v3
-      - name: Run Markdown Lint
-        uses: DavidAnson/markdownlint-cli2-action@v10
-        with:
-          globs: "**/*.md"
+  lint-unit:
+    uses: sous-chefs/.github/.github/workflows/lint-unit.yml@3.1.1
+    permissions:
+      actions: write
+      checks: write
+      pull-requests: write
+      statuses: write
+      issues: write
